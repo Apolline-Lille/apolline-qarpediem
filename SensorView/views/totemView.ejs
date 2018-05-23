@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include importURLs.ejs%>
+    <script src="javascripts/callbackFunctions.js"></script>
+    <script src="javascripts/scriptTotem.js"></script>
+    <script src="javascripts/chartCreation.js"></script>
+    <script src="javascripts/dateConversionFunctions.js"></script>
+    <script src="javascripts/HTMLElementManagement.js"></script>
+    <script src="javascripts/onclickFunctions.js"></script>
+</head>
+<body>
+<%- include navbar %>
+
+<h1>TotemView</h1>
+<div id="formButtonQuery" class="container">
+</div>
+<div id="canvasChart"><canvas id="chart"></canvas></div>
+
+</body>
+<script>
+
+    window.onload = importMeasurements();
+    var measurement, idSensor, timeFilter = 0;
+    var formQuery = document.getElementById("formButtonQuery");
+    var getDataLink = "getDataFromServer";
+
+
+</script>
+
+</html>

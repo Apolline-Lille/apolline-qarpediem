@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <%- include importURLs.ejs%>
+  <title></title>
+</head>
+<body id="body">
+<%- include navbar %>
+
+<h1>TableAvailabilityView</h1>
+<br>
+<p class="col-sm-offset-2"><%= date %></p>
+<br>
+
+<div id="connectedTable" class="container">
+</div>
+
+<script src="javascripts/dynamicTablePlacement.js"></script>
+<script>
+
+
+    function changeImagesDependingOnDataReceived(data){
+        console.log(data);
+        for(var i in data){
+            var img = document.getElementById(i);
+            console.log(img);
+            var position = getPositionFromClassAttribute(img.getAttribute("class"));
+            var status = getStatusFromValuesObject(data[i]);
+            img.setAttribute("src","images/"+status+position+".png");
+        }
+    }
+
+    function getPositionFromClassAttribute(className){
+        if(className.includes("Above")) return "above";
+        else if(className.includes("Below")) return "below";
+        else if(className.includes("left")) return "left";
+        else return "right";
+    }
+
+    function getStatusFromValuesObject(value){
+        if(value==="1") return "chair";
+        else if(value==="-1") return "nothing";
+        else return "someone";
+    }
+
+    var values = <%-JSON.stringify(values)%>;
+    var nbChair = <%=nbChair%>;
+    createTable(nbChair);
+    changeImagesDependingOnDataReceived(values);
+
+
+</script>
+<style type="text/css">
+  .tableConnectee {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+  .aroundChair{
+    padding:0;
+    max-height: 100%;
+  }
+  .chairAbove{
+    margin : 1px;
+    margin-bottom: 0px;
+  }
+  .chairBelow{
+    margin : 1px;
+    margin-top: 0px;
+  }
+  .rightChair {
+    float: left;
+  }
+  .leftChair {
+    float: right;
+  }
+
+  .progress-bar-date1{
+    color: black;
+    text-align: right;
+    background-color: white;
+  }
+  .progress-bar-date2{
+    color : white;
+    text-align: left;
+    background-color: black;
+  }
+</style>
+</body>
+</html>
+

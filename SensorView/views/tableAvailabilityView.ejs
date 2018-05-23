@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <%- include importURLs.ejs%>
+  <script src="javascripts/callbackFunctions.js"></script>
+  <script src="javascripts/scriptTotem.js"></script>
+  <script src="javascripts/chartCreation.js"></script>
+  <script src="javascripts/dateConversionFunctions.js"></script>
+  <script src="javascripts/HTMLElementManagement.js"></script>
+  <script src="javascripts/onclickFunctions.js"></script>
+
+
+  <title></title>
+</head>
+<body id="body">
+<%- include navbar %>
+
+<h1>TableAvailabilityView</h1>
+<br>
+
+<br>
+
+<div id="connectedTable" class="container">
+</div>
+<br>
+<div id="legend" style="display : none">
+
+  <div id="tableConfigBar" class="progress"></div>
+
+  <p>Availability as time went by : (lighter is not busy -  Darker is busy)</p>
+  <div id="progressBar" class="progress"></div>
+  <p>Time :</p>
+  <div id="dateBar" class="progress">
+    <div class="progress-bar progress-bar-date1" role="progressbar" style="width:50%" id="dateProgress1">
+    </div>
+    <div class="progress-bar progress-bar-date2" role="progressbar" style="width:50%" id="dateProgress2">
+    </div>
+  </div>
+  <input id="rangeBar" type="range" step="1">
+
+</div>
+
+<h1>Choose a table</h1>
+
+<div id="formButtonQuery" class="container">
+</div>
+
+<script src="javascripts/tableViewManagement.js"></script>
+<script src="javascripts/dynamicTablePlacement.js"></script>
+
+<script>
+    showLegend();
+</script>
+
+
+<style type="text/css">
+  .tableConnectee {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+
+  }
+  .lineChair {
+    /*content: url('images/chaise.jpg');/* A IMPLEMENTER LORSQU'IL Y AURA LES PHOTOS ADEQUATES */
+    padding:0;
+    height: 100%;
+    max-width: 100%;
+
+  }
+  .aroundChair{
+    padding:0;
+    max-height: 100%;
+  }
+  .chairAbove{
+    margin : 1px;
+    margin-bottom: 0px;
+  }
+  .chairBelow{
+    margin : 1px;
+    margin-top: 0px;
+  }
+  .rightChair {
+    float: left;
+  }
+  .leftChair {
+    float: right;
+  }
+  /*.personne{
+    content: url('images/personne.jpg');
+  }
+  .vide{
+    background-color: white;
+  }*/
+
+  .progress-bar{
+    background-color: white;
+  }
+  .progress-bar-1{
+    background-color: #F8E0E0;
+  }
+  .progress-bar-2{
+    background-color: #F78181;
+  }
+  .progress-bar-3{
+    background-color: #FE2E2E;
+  }
+  .progress-bar-4{
+    background-color: #DF0101;
+  }
+  .progress-bar-5{
+    background-color: #610B0B;
+  }
+  .progress-bar-6{
+    background-color: #190707;
+  }
+  .progress-bar-date1{
+    color: black;
+    text-align: right;
+    background-color: white;
+  }
+  .progress-bar-date2{
+    color : white;
+    text-align: left;
+    background-color: black;
+  }
+</style>
+</body>
+</html>
+

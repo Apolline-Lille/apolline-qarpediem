@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Totem</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="600; URL=http://localhost:8080/liveTotemView">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script id="googleChartScript" type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <%- include importURLs%>
+</head>
+<body style="background-color: #FFFFFF; padding-top: 50px">
+<%- include navbar %>
+<div class="container" id="container">
+    <legend style="color: #000000;" id="legend"></legend>
+
+    <div class="row" id="mesuresActuelles">
+        <div class="col-md-0 col-lg-1">&nbsp;</div>
+        <div class="col-xs-6 col-md-5 col-lg-4">
+            <img src="/images/totem3.png">
+        </div>
+        <div class="col-xs-6 col-md-7 col-lg-7">
+            <div class="row">
+                <div class="col-md-0 col-lg-1">&nbsp;</div>
+                <div id="container0736" class="col-md-5">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Sonde Climat 1</div>
+                        <div id="Valeurs0736" class="panel-body"></div>
+                        <div id="Heure0736" class="panel-footer"></div>
+                    </div>
+                </div>
+                <div id="container0735" class="col-md-5">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Sonde Climat 2</div>
+                        <div id="Valeurs0735" class="panel-body"></div>
+                        <div id="Heure0735" class="panel-footer"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-0 col-lg-1">&nbsp;</div>
+                <div id="container1878" class="col-md-5">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Sonde Déformation 1</div>
+                        <div id="Valeurs1878" class="panel-body"></div>
+                        <div id="Heure1878" class="panel-footer"></div>
+                    </div>
+                </div>
+                <div id="container1876" class="col-md-5">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Sonde Déformation 2</div>
+                        <div id="Valeurs1876" class="panel-body"></div>
+                        <div id="Heure1876" class="panel-footer"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-0 col-lg-1">&nbsp;</div>
+                <div id="container1877" class="col-md-5">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Sonde Déformation 3</div>
+                        <div id="Valeurs1877" class="panel-body"></div>
+                        <div id="Heure1877" class="panel-footer"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 hidden-xs">
+                    <img src="/images/qrcode.png"/>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="graphiques" class="row">
+        <div class="col-md-5">
+            <div id="grapheCapteur1" style="width: 500px; height: 350px"></div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-5">
+            <div id="grapheCapteur2" style="width: 500px; height: 350px"></div>
+        </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-5">
+            <div id="grapheCapteur3" style="width: 500px; height: 350px"></div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-5">
+            <div id="grapheCapteur4" style="width: 500px; height: 350px"></div>
+        </div>
+    </div>
+
+    <HR id="derniereLigne" style="color:#000000;">
+
+
+</div>
+</body>
+<script src="/javascripts/lastValues.js"></script>
+<script src="/javascripts/lastNValues.js"></script>
+<script>
+
+    switcher = {
+        body: document.getElementsByTagName("body")[0],
+        conteneur: document.getElementById("container"),
+        mesuresActuelles: document.getElementById("mesuresActuelles"),
+        graphiques: document.getElementById("graphiques"),
+        derniereLigne: document.getElementById("derniereLigne"),
+        legend: document.getElementById("legend"),
+
+        afficherMesures: function () {
+            this.conteneur.insertBefore(this.mesuresActuelles, this.derniereLigne);
+        },
+        retirerMesures: function () {
+            this.conteneur.removeChild(this.mesuresActuelles);
+        },
+        afficherGraphiques: function () {
+            this.conteneur.insertBefore(this.graphiques, this.derniereLigne);
+        },
+        retirerGraphiques: function () {
+            this.conteneur.removeChild(this.graphiques);
+        },
+        textePourLegend: function (texte) {
+            var balisesTextuelles = switcher.legend.childNodes;
+            for (var i = 0; i < balisesTextuelles.length; i++)
+                switcher.legend.removeChild(balisesTextuelles[i]);
+            switcher.legend.appendChild(document.createTextNode(texte));
+        }
+    };
+
+    switcher.retirerGraphiques();
+    switcher.textePourLegend ("Totem IRCICA");
+    onload = function () {
+        recupererDernieresValeurs("0735", "afficherValeurs");
+            //console.log(valeurs);
+            //afficherValeurs(valeurs, "0735");
+
+        recupererDernieresValeurs("0736","afficherValeurs");
+            //afficherValeurs(valeurs, "0736");
+
+        recupererDernieresValeurs("1876","afficherValeurs")
+            //afficherValeurs(valeurs, "1876");
+
+        recupererDernieresValeurs("1877","afficherValeurs");
+            //afficherValeurs(valeurs, "1877");
+
+        recupererDernieresValeurs("1878", "afficherValeurs");
+            //afficherValeurs(valeurs, "1878");
+
+    }
+
+    function clickSurUnPanel(event) {
+        event.stopPropagation();
+        afficherLesGraphiquesPour(this.idCapteur);
+    }
+
+    document.getElementById("container0735").onclick = clickSurUnPanel.bind({idCapteur: "0735"});
+    document.getElementById("container0736").onclick = clickSurUnPanel.bind({idCapteur: "0736"});
+    document.getElementById("container1876").onclick = clickSurUnPanel.bind({idCapteur: "1876"});
+    document.getElementById("container1877").onclick = clickSurUnPanel.bind({idCapteur: "1877"});
+    document.getElementById("container1878").onclick = clickSurUnPanel.bind({idCapteur: "1878"});
+
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include importURLs.ejs%>
+
+</head>
+<body>
+<%- include navbar %>
+<p><%=currDate%></p>
+<div class="row">
+    <% for(var i=0; i<measurements.length; i++){%>
+    <p id="<%=measurements[i]%>"><%=measurements[i]%> : <%=data[measurements[i]]%></p>
+    <%}%>
+</div>
+<script>
+    function callbackLiveData(data){
+        console.log(data);
+        for(var i=0; i<data.measurements.length; i++){
+            p = document.getElementById(data.measurements[i]);
+            p.innerHTML = data.measurements[i] + " : " + data.data[data.measurements[i]];
+        }
+    }
+    getLiveData();
+
+
+    function getLiveData(){
+        var script = document.createElement("script");
+        script.setAttribute('name','importLiveData');
+        script.setAttribute("src","/refreshLiveSonometer?callback=callbackLiveData");
+        var body = document.getElementsByTagName("body");
+        body[0].appendChild(script);
+
+        setTimeout(getLiveData, 5000);
+
+    }
+
+    function callbackLiveData(data){
+        for(var i=0; i<data.length; i++){
+            p = document.getElementById(data[i]);
+            p.innerHTML = data[i].data[data[i]];
+        }
+    }
+</script>
+</body>
+</html>
