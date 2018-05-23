@@ -55,8 +55,6 @@ int main(int argc, char* argv[]){
 		} catch(std::exception& e){
 			cerr << "error: " << endl << e.what() << endl;
 		}
-
-		kill(get_poller_pid(), SIGUSR1);
 		sleep(1);
 	}
 
