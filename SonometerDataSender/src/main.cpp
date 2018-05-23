@@ -7,6 +7,8 @@
 #include <fstream>
 #include <wiringPi.h>
 
+#define GPIO_PIN 21
+
 using namespace std;
 
 SensorsDatabase* database;
