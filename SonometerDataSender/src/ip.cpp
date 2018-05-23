@@ -93,7 +93,7 @@ static void send_polls(vector<time_t> polls){
 		for(const auto& data : poll){
 			poll_json[data.first] = data.second;
 		}
-		poll_json["date"] = ((uint64_t) poll_time);
+		poll_json["date"] = ((uint64_t) poll_time) * 1000;
 		poll_json["rssi"] = 255;
 		poll_json["address"] = database->get_config("node_address");
 		root.append(poll_json);
