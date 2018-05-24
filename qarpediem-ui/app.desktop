@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Qarpediem Control Center
+
+Exec=qarpediem-control-center
+
+Icon=/usr/share/qarpediem-control-center/app.png
+
+Terminal=false

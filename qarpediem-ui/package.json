@@ -1,0 +1,17 @@
+{
+  "name": "qarpediem",
+  "version": "1.0.0",
+  "description": "Interface de gestion d'une unité Qarpediem",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MAERTEN Valentin (seris@protonmail.ch)",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.6.0",
+    "jquery": "^3.2.1",
+    "jquery-deserialize": "^2.0.0-rc1",
+    "moment": "^2.18.1"
+  }
+}

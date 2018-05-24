@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Qarpediem - Control Center</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">QARPEDIEM Control Center <img id="logo" src="app.png" /></a>
+				</div>
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Sensors Data</a></li>
+					<li><a href="sensors.html">Sensors Manager</a></li>
+					<li><a href="config.html">Settings</a></li>
+				</ul>
+
+				<ul class="nav navbar-right navbar-nav">
+					<li id="loading"><img src="img/loading.svg"/></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2 col-md-2 list-group">
+					<div class="panel">
+						<div class="panel-heading">Available Sensors</div>
+						<div id="sensors_list" class="panel-body"></div>
+					</div>
+				</div>
+				<div class="col-sm-10 col-md-10" id="plot_group">
+					<div class="panel">
+						<div class="panel-heading">Sensors Data</div>
+						<canvas id="sensors_plot" class="panel-body container-fluid"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/app.js"></script>	
+	</body>
+</html>
