@@ -135,11 +135,38 @@ function enable_sensor(sensor, elem){
 function update_sensor(sensor, elem){
 	let req =
 	"SELECT data,poll_time FROM sensors.data WHERE sensor_identifier='" + sensor + "';";
-	let sono_req = 
-	"SELECT data,poll_time FROM sensors.sonometer_data WHERE sensor_identifier='" + sensor + "';";
+	let sonometer_req = 
+	"SELECT data,poll_time FROM sonometer.sonometer_data WHERE sensor_identifier='" + sensor + "';";
 	let dataset = elem.chart_dataset;
 
 	sqlite_request(req, function(data_rows){
+		if(data_rows !== null){
+			let data = [];
+			let time = [];
+			dataset.data = [];
+			data_rows.forEach((row) => {
+				dataset.data.push({
+					x: moment.unix(Number(row[1])),
+					y: Number(row[0])
+				});
+			});
+
+			for(let i = 0; i < time.length; i++){
+				if(chart.data.labels.indexOf(time[i]) == -1){
+					dataset.data.push(data[i]);
+					chart.data.labels.push(time[i]);
+				} else {
+					dataset.data.push(null);
+				}
+			}
+
+			chart.update();
+		}
+
+		loading_count--;
+	});
+
+	sqlite_request(sonometer_req, function(data_rows){
 		if(data_rows !== null){
 			let data = [];
 			let time = [];
