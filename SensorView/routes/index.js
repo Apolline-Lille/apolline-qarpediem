@@ -72,11 +72,11 @@ router.get('/getMeasurements', function(req,res){
 router.get('/getIDSensor', function(req,res){
     var callback = req.query.callbackFunction;
     var critere = req.query.measurement;
-    influxDB.query('SHOW TAG VALUES FROM ' + critere + ' WITH KEY="IDSensor"').then(
+    influxDB.query('SHOW TAG VALUES FROM ' + critere + ' WITH KEY="device"').then(
         function (results) {
-            var idSensors = [];
-            for(var i=0; i<results.length; i++){ idSensors[i] = results[i].IDSensor; }
-            res.send(""+ callback + '(' + JSON.stringify(idSensors) + ');');});});
+            var idNodes = [];
+            for(var i=0; i<results.length; i++){ idNodes[i] = results[i].device; }
+            res.send(""+ callback + '(' + JSON.stringify(idNodes) + ');');});});
 
 router.get('/getDataFromServer', function(req,res){
     var callback = req.query.callbackFunction;
@@ -92,7 +92,7 @@ router.get('/getDataFromServer', function(req,res){
                 data.values[i] = results[i].value;
             }
             data.measurement = req.query.measurement;
-            data.idSensor = req.query.idsensor;
+            data.device = req.query.device;
             res.status(200).send(""+ callback + '(' + JSON.stringify(data) + ');');});});
 
 router.get('/getTableAvailabilityViewData', function(req,res){
@@ -149,31 +149,31 @@ router.get('/downloadCSV', function (req,res){
     influxDB.query(query).then(
         function (results) {
             var csv = {
-                fields : ["IDSensor","time", "value"],
+                fields : ["device","time", "value"],
                 values : []
             };
             for(var i=0; i<results.length; i++) {
                 csv.values.push({
-                    "IDSensor": req.query.idsensor,
+                    "device": req.query.device,
                     "time": moment(results[i].time).utc(),
                     "value": results[i].value})}
             res.status(200).type("text/csv").send(generateCSVString(csv));});});
 
 function getQueryFromParams(params) {
     var measurement = params.measurement;
-    var idSensor = params.idsensor;
+    var idNode = params.device;
     var timeFilter = params.timeFilter;
     var query = "";
-    if (timeFilter === "None") query = "SELECT * FROM " + measurement + " WHERE IDSensor='" + idSensor + "'";
+    if (timeFilter === "None") query = "SELECT * FROM " + measurement + " WHERE device='" + idNode + "'";
     else if (timeFilter === "Since") {
         var ntime = params.nTime;
         var timeUnit = params.timeUnit;
-        query = "SELECT * FROM " + measurement + " WHERE IDSensor='" + idSensor + "' AND time> now() - " + ntime + timeUnit;
+        query = "SELECT * FROM " + measurement + " WHERE device='" + idNode + "' AND time> now() - " + ntime + timeUnit;
     }
     else if (timeFilter === "Between") {
         var time1 = moment(params.time1).utc().format();
         var time2 = moment(params.time2).utc().format();
-        query = "SELECT * FROM " + measurement + " WHERE IDSensor='" + idSensor + "' AND time>'" + time1 + "' AND time<'" + time2 + "'";
+        query = "SELECT * FROM " + measurement + " WHERE device='" + idNode + "' AND time>'" + time1 + "' AND time<'" + time2 + "'";
     }
     return query;}
 
@@ -271,7 +271,7 @@ router.post('/sonometer', function(req,res) {
 router.post('/airQualityJSON', function (req,res){
     var data = req.body;
     for(var i=0; i<data.length; i++){
-        sendDataToInfluxDB("airquality",data[i]);
+        sendDataToInfluxDB("qarpediem", data[i]);
     }
     res.status(200).end();
 });
@@ -282,7 +282,7 @@ router.post('/airQualityJSON', function (req,res){
 router.post('/sonometerJSON', function (req,res){
     var data = req.body;
     for(var i=0; i<data.length; i++){
-        sendDataToInfluxDB("airquality",data[i]);
+        sendDataToInfluxDB("qarpediem", data[i]);
     }
     res.status(200).end();
 });
@@ -299,9 +299,9 @@ function sendDataToInfluxDB(database, data){
             influxDB.writePoints([
                 {
                     measurement : key[i],
-                    tags : { IDSensor : data.address },
+                    tags : { device : data.address },
                     fields : { value : data[key[i]]},
-                    timestamp: date
+                    timestamp: date // in milliseconds
                 }
             ]).catch(function(e) {
                 console.log("ERROR");
@@ -453,7 +453,7 @@ router.get('/lastValues', function(req,res){
     var sensorId = req.query.sensorId;
     var data = {};
     if((sensorId)<1000){
-        influxDB.query("SELECT last(value) FROM temperature, humidity, dewPoint, boardTemp WHERE IDSensor='"+sensorId+"'").then(
+        influxDB.query("SELECT last(value) FROM temperature, humidity, dewPoint, boardTemp WHERE device='"+sensorId+"'").then(
             function (results){
                 data.date = getCorrectDateFormat(results[0].time);
                 data.temperature = getSpecificDataFromMultipleSelectQuery("temperature",results);
@@ -462,7 +462,7 @@ router.get('/lastValues', function(req,res){
                 data.boardTemp = getSpecificDataFromMultipleSelectQuery("boardTemp", results);
                 res.status(200).send(""+ req.query.callbackFunction + '(' + JSON.stringify(data) + ',"'+req.query.sensorId+'");');});}
     else{
-        influxDB.query("SELECT last(value) FROM temperature, sensorRaw, delta, vBat WHERE IDSensor='"+sensorId+"'").then(
+        influxDB.query("SELECT last(value) FROM temperature, sensorRaw, delta, vBat WHERE device='"+sensorId+"'").then(
             function(results){
                 data.date = getCorrectDateFormat(results[0].time);
                 data.temperature = getSpecificDataFromMultipleSelectQuery("temperature",results);
@@ -478,7 +478,7 @@ router.get('/lastNValues', function(req,res){
     console.log(req.query);
     if((sensorId)<1000){
         data.push(["date","temperature" ,"humidity" ,"dewPoint","boardTemp"]);
-        influxDB.query("SELECT value FROM temperature, humidity, dewPoint, boardTemp WHERE IDSensor='"+sensorId+"' LIMIT " + num).then(
+        influxDB.query("SELECT value FROM temperature, humidity, dewPoint, boardTemp WHERE device='"+sensorId+"' LIMIT " + num).then(
             function (results){
                 for( var i = 0 ; i<results.groupRows[0].rows.length; i++){
                     date = getCorrectDateFormat(results.groupRows[0].rows[i].time);
@@ -490,8 +490,8 @@ router.get('/lastNValues', function(req,res){
                 res.status(200).send(""+ req.query.callbackFunction + '(' + JSON.stringify(data) + ',"'+req.query.sensorId+'");');});}
     else{
         data.push(["date" , "temperature" , "sensorRaw" , "delta" , "vBat"]);
-        console.log("SELECT value FROM temperature, sensorRaw, delta, vBat WHERE IDSensor='"+sensorId+"' LIMIT " + num);
-        influxDB.query("SELECT value FROM temperature, sensorRaw, delta, vBat WHERE IDSensor='"+sensorId+"' LIMIT " + num).then(
+        console.log("SELECT value FROM temperature, sensorRaw, delta, vBat WHERE device='"+sensorId+"' LIMIT " + num);
+        influxDB.query("SELECT value FROM temperature, sensorRaw, delta, vBat WHERE device='"+sensorId+"' LIMIT " + num).then(
             function(results){
                 console.log(results.groupRows[0].rows[0].time);
                 for( var i = 0 ; i<results.groupRows[0].rows.length; i++){

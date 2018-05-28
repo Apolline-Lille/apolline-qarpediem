@@ -23,7 +23,7 @@ bool Sonometer::openPort(string port)
 
     closePort();
 
-    port_fd = open(port.c_str(), O_RDWR | O_NOCTTY | O_RSYNC | O_SYNC);
+    port_fd = open(port.c_str(), O_RDWR | O_NOCTTY);
     if (port_fd < 0)
     {
         throw system_error(errno, system_category());
@@ -53,6 +53,11 @@ bool Sonometer::isPortOpen(void) const
 int Sonometer::sendRequest(void)
 {
     unsigned char cmd[] = {'r', '\0'};
+    
+    // Flush Port
+    sleep(1);
+    tcflush(port_fd, TCIFLUSH);
+
     int nb_bytes = write(port_fd, cmd, sizeof(cmd) - 1);
 
     if (nb_bytes < 0 && errno != EAGAIN && errno != EWOULDBLOCK)
@@ -65,9 +70,10 @@ int Sonometer::sendRequest(void)
 bool Sonometer::isInitFrameReceived(char *buffer) const
 {
     bool ret = false;
-    string initFrame = "BAT>LA10>LA50>LA90>MoyenneLAeq>Fmax>MyoCGS>NevtLAEQ>TevtLAEQ>Nevt60dB>Tevt60dB";
+    string buffer_str;
+    buffer_str = buffer;
 
-    if (initFrame == buffer)
+    if (buffer_str.find("BAT") != -1)
     {
         ret = true;
     }
@@ -78,6 +84,7 @@ bool Sonometer::isInitFrameReceived(char *buffer) const
 int Sonometer::readData(char *buffer)
 {
     string buffer_str;
+    
     nb_bytes = read(port_fd, buffer, BUFFER_SIZE * sizeof(char) - 1);
 
     // DEBUG
@@ -95,7 +102,6 @@ int Sonometer::readData(char *buffer)
     if (isBadData(buffer))
     {
         cout << "BAD DATA" << endl;
-        clear(buffer);
     }
 
     // Remove \r (Carriage return)
@@ -231,8 +237,6 @@ void Sonometer::clear(char *buffer) const
 
 void Sonometer::processData(char *buffer, SensorsDatabase *db)
 {
-    string buffer_str;
-    buffer_str = buffer;
     char la10_str[5], la50_str[5], la90_str[5], avgLaEq_str[5], freqMax_str[5], avgCGS_str[5], nEvtLaEq_str[5], tEvtLaEq_str[5], nEvt60db_str[5], tEvt60db_str[5];
     int i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, o = 0, p = 0, q = 0, r = 0, t = 0;
 
@@ -241,7 +245,7 @@ void Sonometer::processData(char *buffer, SensorsDatabase *db)
         BATTERY>LA10>LA50>LA90>avgLaEq>freqMax>avgCGS>nEvtLaEq>tEvtLaEq>nEvt60db>tEvt60db
     */
 
-    if (!buffer_str.empty() && isInitFrameReceived(buffer) == false)
+    if (!isBadData(buffer) && isInitFrameReceived(buffer) == false)
     {
 
         while (buffer[i] != FRAME_SEPARATOR && buffer[i] != '\0') // Ignore the battery field as we don't need it
@@ -346,20 +350,20 @@ void Sonometer::processData(char *buffer, SensorsDatabase *db)
         time_t poll_time = time(NULL);
         db->create_poll(poll_time);
 
-        db->push_data("la10", poll_time, m_la10);
-        db->push_data("la50", poll_time, m_la50);
-        db->push_data("la90", poll_time, m_la90);
-        db->push_data("avg_laeq", poll_time, m_avgLaEq);
-        db->push_data("fmax", poll_time, m_freqMax);
-        db->push_data("avg_cgs", poll_time, m_avgCGS);
-        db->push_data("n_evt_laeq", poll_time, m_nEvtLaEq);
-        db->push_data("t_evt_laeq", poll_time, m_tEvtLaEq);
-        db->push_data("n_evt_60db", poll_time, m_nEvt60db);
-        db->push_data("t_evt_60db", poll_time, m_tEvt60db);
+        db->push_data("sound_la10", poll_time, m_la10);
+        db->push_data("sound_la50", poll_time, m_la50);
+        db->push_data("sound_la90", poll_time, m_la90);
+        db->push_data("sound_avg_laeq", poll_time, m_avgLaEq);
+        db->push_data("sound_fmax", poll_time, m_freqMax);
+        db->push_data("sound_avg_cgs", poll_time, m_avgCGS);
+        db->push_data("sound_n_evt_laeq", poll_time, m_nEvtLaEq);
+        db->push_data("sound_t_evt_laeq", poll_time, m_tEvtLaEq);
+        db->push_data("sound_n_evt_60db", poll_time, m_nEvt60db);
+        db->push_data("sound_t_evt_60db", poll_time, m_tEvt60db);
 
         db->commit_poll(poll_time);
     }
-    else if (buffer_str.empty() && isInitFrameReceived(buffer) == false)
+    else if (isBadData(buffer) && isInitFrameReceived(buffer) == false)
     {
         cout << "DATA NOT PROCESSED" << endl;
     }

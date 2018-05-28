@@ -55,6 +55,7 @@ int main(int argc, char* argv[]){
 		} catch(std::exception& e){
 			cerr << "error: " << endl << e.what() << endl;
 		}
+
 		sleep(1);
 	}
 

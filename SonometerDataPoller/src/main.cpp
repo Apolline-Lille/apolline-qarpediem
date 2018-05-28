@@ -100,13 +100,17 @@ int main(int argc, char *argv[])
 			// Data polling/retrieving start here
 			if (init == 1)
 			{
+				while(ready == 0){
+					ready = digitalRead(GPIO_PIN);
+					
+				}
 				// Read "H#" to make sure the baudrate is OK.
 				sonometer.readData(dataBuffer);
-
-				// Wait 50 seconds and then check init Frame
-				sleep(50);
+				
+				sleep(40);
+				
 				sonometer.clear(dataBuffer);
-
+				
 				// Read data
 				sonometer.sendRequest();
 				sonometer.readData(dataBuffer);
@@ -130,7 +134,6 @@ int main(int argc, char *argv[])
 
 			if (sonometer.isInitFrameReceived(dataBuffer) == true)
 			{
-
 				// Clear buffer
 				sonometer.clear(dataBuffer);
 				cout << "Init frame received" << endl;
@@ -165,7 +168,7 @@ int main(int argc, char *argv[])
 						cout << "Nb polls: " << poll_count << endl;
 						cout << "Time elapsed: " << globalTimer.elapsed() << "s" << endl;
 
-						sleep(30 - (int)pollExecTime.elapsed());
+						//sleep(15 - (int)pollExecTime.elapsed());
 					}
 
 					if (sonometer.isInitFrameReceived(dataBuffer) == true)
@@ -177,8 +180,6 @@ int main(int argc, char *argv[])
 					// We can use an interrupt signal to stop the program at any time
 					// (For example, by pressing Ctrl + C)
 					signal(SIGINT, stop_datapoller);
-					signal(SIGUSR1, enable_polling);
-					signal(SIGHUP, disable_polling);
 				}
 
 				nb_loop = 0;
