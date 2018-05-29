@@ -7,13 +7,10 @@ using namespace std;
 // Class constructor
 SensorsDatabase::SensorsDatabase(string path, bool configure){
 	sqlite3_enable_shared_cache(true);
-	
-	//sqlite3_busy_timeout(db, 3000);	
+		
 	int rc = sqlite3_open("", &db);
 	if(rc == SQLITE_OK){
 		
-		Statement(db, "PRAGMA foreign_keys=on;").execute();
-		Statement(db, "PRAGMA journal_mode=WAL;").execute();
 		
 		string sensors = "ATTACH DATABASE ";
 		sensors += ("'" + path + "/sonometer.db' AS sonometer;");
@@ -25,6 +22,9 @@ SensorsDatabase::SensorsDatabase(string path, bool configure){
 
 		Statement(db, sensors).execute();
 		Statement(db, config).execute();
+
+		Statement(db, "PRAGMA foreign_keys=on;").execute();
+		Statement(db, "PRAGMA journal_mode=WAL;").execute();
 
 		if(configure){
 			init_database();
