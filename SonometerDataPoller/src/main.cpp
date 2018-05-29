@@ -119,7 +119,6 @@ int main(int argc, char *argv[])
 			}
 			else if (init == 0 && poll_count == 0)
 			{
-				sleep(20);
 				ready = digitalRead(GPIO_PIN);
 
 				if (ready)
