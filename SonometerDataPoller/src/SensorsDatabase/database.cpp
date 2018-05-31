@@ -6,7 +6,6 @@ using namespace std;
 
 // Class constructor
 SensorsDatabase::SensorsDatabase(string path, bool configure){
-	sqlite3_enable_shared_cache(true);
 		
 	int rc = sqlite3_open("", &db);
 	if(rc == SQLITE_OK){
