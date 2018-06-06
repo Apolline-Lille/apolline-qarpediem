@@ -1,0 +1,205 @@
+\hypertarget{classInterQarpe_1_1DuplexBase}{\section{Inter\+Qarpe\+:\+:Duplex\+Base Class Reference}
+\label{classInterQarpe_1_1DuplexBase}\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+}
+
+
+Inheritance diagram for Inter\+Qarpe\+:\+:Duplex\+Base\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classInterQarpe_1_1DuplexBase__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classInterQarpe_1_1DuplexBase_afd89e07392cc99212fa7fdaa5b4f1ca9}{routine} (void)
+\begin{DoxyCompactList}\small\item\em Execute common task needed by the Inter\+Qarpe protocol to manage the connection. \end{DoxyCompactList}\item 
+bool \hyperlink{classInterQarpe_1_1DuplexBase_a625debf26eb65849e398b46b26c4bb10}{is\+\_\+connected} (void)
+\begin{DoxyCompactList}\small\item\em Check if we have we are connected to the other device. \end{DoxyCompactList}\item 
+\hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result} \hyperlink{classInterQarpe_1_1DuplexBase_a854f6b7c2a7a11bbd3e21b1db5cd8d6b}{query} (const char $\ast$query)
+\begin{DoxyCompactList}\small\item\em Send a query to the other device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classInterQarpe_1_1DuplexBase_acf8055b4b74a31d87d2bb7f996bb70ad}{send\+\_\+response\+\_\+ok} (T $\ast$data)
+\begin{DoxyCompactList}\small\item\em send a \char`\"{}ok\char`\"{} response to the other device \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classInterQarpe_1_1DuplexBase_abb519576ef34c52b3f9f308ae8985fc4}{send\+\_\+response\+\_\+error} (T $\ast$data)
+\begin{DoxyCompactList}\small\item\em send a \char`\"{}error\char`\"{} response to the other device \end{DoxyCompactList}\item 
+\hypertarget{classInterQarpe_1_1DuplexBase_a897ceb69441859a534402332c366325f}{void \hyperlink{classInterQarpe_1_1DuplexBase_a897ceb69441859a534402332c366325f}{send\+\_\+badquery} (void)}\label{classInterQarpe_1_1DuplexBase_a897ceb69441859a534402332c366325f}
+
+\begin{DoxyCompactList}\small\item\em Signal to the other side that the query is not handled on our side. \end{DoxyCompactList}\item 
+\hypertarget{classInterQarpe_1_1DuplexBase_a0b2dc57b5951bd0d3a4b670ee860c496}{virtual void \hyperlink{classInterQarpe_1_1DuplexBase_a0b2dc57b5951bd0d3a4b670ee860c496}{on\+\_\+query} (const char $\ast$\hyperlink{classInterQarpe_1_1DuplexBase_a854f6b7c2a7a11bbd3e21b1db5cd8d6b}{query})}\label{classInterQarpe_1_1DuplexBase_a0b2dc57b5951bd0d3a4b670ee860c496}
+
+\begin{DoxyCompactList}\small\item\em Hook that is called when a query is received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{classInterQarpe_1_1DuplexBase_a84945449769cfa079e543bcbad668b20}{write\+\_\+bytes} (uint8\+\_\+t $\ast$buf, size\+\_\+t count)=0
+\begin{DoxyCompactList}\small\item\em Write bytes in the serial port. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classInterQarpe_1_1DuplexBase_ad66214fcff48f64165bcee960979e652}{read\+\_\+bytes} (uint8\+\_\+t $\ast$buf, size\+\_\+t count)=0
+\begin{DoxyCompactList}\small\item\em Read \char`\"{}count\char`\"{} bytes from the serial port. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classInterQarpe_1_1DuplexBase_a363d4fe7f3f058cd0622a26759bf7e17}{bytes\+\_\+available} (void)=0
+\begin{DoxyCompactList}\small\item\em Return the number of bytes available on the serial port. \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \hyperlink{classInterQarpe_1_1DuplexBase_a06cd56b01b03efb46597937de255406b}{now\+\_\+ms} (void)=0
+\begin{DoxyCompactList}\small\item\em Return the time in milliseconds (used for timeout, so we don't care of the absolute value) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classInterQarpe_1_1DuplexBase_a363d4fe7f3f058cd0622a26759bf7e17}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!bytes\+\_\+available@{bytes\+\_\+available}}
+\index{bytes\+\_\+available@{bytes\+\_\+available}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{bytes\+\_\+available}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Inter\+Qarpe\+::\+Duplex\+Base\+::bytes\+\_\+available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classInterQarpe_1_1DuplexBase_a363d4fe7f3f058cd0622a26759bf7e17}
+
+
+Return the number of bytes available on the serial port. 
+
+\begin{DoxyReturn}{Returns}
+number of bytes available (if we can't get the value because of an error, we should return 0) 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1DuplexBase_a625debf26eb65849e398b46b26c4bb10}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!is\+\_\+connected@{is\+\_\+connected}}
+\index{is\+\_\+connected@{is\+\_\+connected}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{is\+\_\+connected}]{\setlength{\rightskip}{0pt plus 5cm}bool Inter\+Qarpe\+::\+Duplex\+Base\+::is\+\_\+connected (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1DuplexBase_a625debf26eb65849e398b46b26c4bb10}
+
+
+Check if we have we are connected to the other device. 
+
+\begin{DoxyReturn}{Returns}
+true if we have a valid connection with the other device 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1DuplexBase_a06cd56b01b03efb46597937de255406b}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!now\+\_\+ms@{now\+\_\+ms}}
+\index{now\+\_\+ms@{now\+\_\+ms}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{now\+\_\+ms}]{\setlength{\rightskip}{0pt plus 5cm}virtual uint32\+\_\+t Inter\+Qarpe\+::\+Duplex\+Base\+::now\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classInterQarpe_1_1DuplexBase_a06cd56b01b03efb46597937de255406b}
+
+
+Return the time in milliseconds (used for timeout, so we don't care of the absolute value) 
+
+\begin{DoxyReturn}{Returns}
+return the current time 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1DuplexBase_a854f6b7c2a7a11bbd3e21b1db5cd8d6b}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!query@{query}}
+\index{query@{query}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{query}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query\+Result} Inter\+Qarpe\+::\+Duplex\+Base\+::query (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{query}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1DuplexBase_a854f6b7c2a7a11bbd3e21b1db5cd8d6b}
+
+
+Send a query to the other device. 
+
+This function is blocking and will only return when we have a proper response to return (a.\+k.\+a response from the other device or timeout after the default duration without a response)
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & the query must be a 0-\/terminated string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the query's result 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1DuplexBase_ad66214fcff48f64165bcee960979e652}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!read\+\_\+bytes@{read\+\_\+bytes}}
+\index{read\+\_\+bytes@{read\+\_\+bytes}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{read\+\_\+bytes}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Inter\+Qarpe\+::\+Duplex\+Base\+::read\+\_\+bytes (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{buf, }
+\item[{size\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classInterQarpe_1_1DuplexBase_ad66214fcff48f64165bcee960979e652}
+
+
+Read \char`\"{}count\char`\"{} bytes from the serial port. 
+
+If less bytes are available this function will not wait for the missing bytes and return
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & pointer to a buffer of \char`\"{}count\char`\"{} bytes that will be overwritten \\
+\hline
+{\em count} & number of bytes to read from the serial port\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes read successfully from the serial port (can be less than \char`\"{}count\char`\"{}) or -\/1 if an error occur and exception are disabled. 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1DuplexBase_afd89e07392cc99212fa7fdaa5b4f1ca9}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!routine@{routine}}
+\index{routine@{routine}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{routine}]{\setlength{\rightskip}{0pt plus 5cm}void Inter\+Qarpe\+::\+Duplex\+Base\+::routine (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1DuplexBase_afd89e07392cc99212fa7fdaa5b4f1ca9}
+
+
+Execute common task needed by the Inter\+Qarpe protocol to manage the connection. 
+
+This function must be executed in order to receive packet. You may want to execute it in each iteration of your main loop. \hypertarget{classInterQarpe_1_1DuplexBase_abb519576ef34c52b3f9f308ae8985fc4}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}}
+\index{send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{send\+\_\+response\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Inter\+Qarpe\+::\+Duplex\+Base\+::send\+\_\+response\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classInterQarpe_1_1DuplexBase_abb519576ef34c52b3f9f308ae8985fc4}
+
+
+send a \char`\"{}error\char`\"{} response to the other device 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data to send \\
+\hline
+\end{DoxyTemplParams}
+\hypertarget{classInterQarpe_1_1DuplexBase_acf8055b4b74a31d87d2bb7f996bb70ad}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}}
+\index{send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{send\+\_\+response\+\_\+ok}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Inter\+Qarpe\+::\+Duplex\+Base\+::send\+\_\+response\+\_\+ok (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classInterQarpe_1_1DuplexBase_acf8055b4b74a31d87d2bb7f996bb70ad}
+
+
+send a \char`\"{}ok\char`\"{} response to the other device 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data to send \\
+\hline
+\end{DoxyTemplParams}
+\hypertarget{classInterQarpe_1_1DuplexBase_a84945449769cfa079e543bcbad668b20}{\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!write\+\_\+bytes@{write\+\_\+bytes}}
+\index{write\+\_\+bytes@{write\+\_\+bytes}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection[{write\+\_\+bytes}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Inter\+Qarpe\+::\+Duplex\+Base\+::write\+\_\+bytes (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{buf, }
+\item[{size\+\_\+t}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}}\label{classInterQarpe_1_1DuplexBase_a84945449769cfa079e543bcbad668b20}
+
+
+Write bytes in the serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & pointer to \char`\"{}count\char`\"{} bytes that will be send through the serial port \\
+\hline
+{\em count} & number of bytes to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes written succesfully or -\/1 if we failed to write altogether and exception are disabled 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Inter\+Qarpe.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\hypertarget{classQueryResult}{\section{Query\+Result$<$ T $>$ Class Template Reference}
+\label{classQueryResult}\index{Query\+Result$<$ T $>$@{Query\+Result$<$ T $>$}}
+}
+
+
+Represent the result of a query  T represent the data the query should.  
+
+
+
+
+{\ttfamily \#include $<$Query\+Result.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classQueryResult_aa0d5aa6225fcb1bd073c07041a677209}{enum {\bfseries status\+\_\+t} \{ {\bfseries S\+U\+C\+C\+E\+S\+S}, 
+{\bfseries F\+A\+I\+L\+U\+R\+E}, 
+{\bfseries B\+A\+D\+\_\+\+Q\+U\+E\+R\+Y}, 
+{\bfseries T\+I\+M\+E\+O\+U\+T}
+ \}}\label{classQueryResult_aa0d5aa6225fcb1bd073c07041a677209}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+status\+\_\+t \hyperlink{classQueryResult_ab4b6fc200ad1553dbcfe447fb0e0acda}{status} (void)
+\begin{DoxyCompactList}\small\item\em Return the current status of the query. \end{DoxyCompactList}\item 
+bool \hyperlink{classQueryResult_a7cd9fa97e7267b1a901a3b5c694612c0}{data\+\_\+available} (void)
+\begin{DoxyCompactList}\small\item\em Check if we have correct data available. \end{DoxyCompactList}\item 
+T \hyperlink{classQueryResult_a0725b099b0323f6ffc711bd77b9e21b7}{get\+\_\+data} (void)
+\begin{DoxyCompactList}\small\item\em Check if we have valid data on the buffer and return it through the pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class Query\+Result$<$ T $>$}
+
+Represent the result of a query  T represent the data the query should. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classQueryResult_a7cd9fa97e7267b1a901a3b5c694612c0}{\index{Query\+Result@{Query\+Result}!data\+\_\+available@{data\+\_\+available}}
+\index{data\+\_\+available@{data\+\_\+available}!Query\+Result@{Query\+Result}}
+\subsubsection[{data\+\_\+available}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool {\bf Query\+Result}$<$ T $>$\+::data\+\_\+available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classQueryResult_a7cd9fa97e7267b1a901a3b5c694612c0}
+
+
+Check if we have correct data available. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classQueryResult_a0725b099b0323f6ffc711bd77b9e21b7}{\index{Query\+Result@{Query\+Result}!get\+\_\+data@{get\+\_\+data}}
+\index{get\+\_\+data@{get\+\_\+data}!Query\+Result@{Query\+Result}}
+\subsubsection[{get\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf Query\+Result}$<$ T $>$\+::get\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classQueryResult_a0725b099b0323f6ffc711bd77b9e21b7}
+
+
+Check if we have valid data on the buffer and return it through the pointer. 
+
+The user should call data\+\_\+available before calling get\+\_\+data or this {\itshape may} result in an exception being thrown.
+
+\begin{DoxyReturn}{Returns}
+a copy of the data received from the query
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Data\+Available} & \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classQueryResult_ab4b6fc200ad1553dbcfe447fb0e0acda}{\index{Query\+Result@{Query\+Result}!status@{status}}
+\index{status@{status}!Query\+Result@{Query\+Result}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ status\+\_\+t {\bf Query\+Result}$<$ T $>$\+::status (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classQueryResult_ab4b6fc200ad1553dbcfe447fb0e0acda}
+
+
+Return the current status of the query. 
+
+\begin{DoxyReturn}{Returns}
+current status of query 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Query\+Result.\+h\end{DoxyCompactItemize}
