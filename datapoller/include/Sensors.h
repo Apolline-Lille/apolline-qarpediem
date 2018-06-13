@@ -67,6 +67,8 @@ public:
 	 * @return  true if a port is open by Sensors
 	 */
 	bool is_port_open(void);
+
+	int getFileDescriptor(void) const;
 };
 
 #endif // __DUPLEX_SENSORS__

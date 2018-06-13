@@ -91,3 +91,8 @@ bool Sensors::configure_port(int fd){
 	fcntl(fd, F_SETFL, O_NDELAY | O_ASYNC);
 	return true;
 }
+
+int Sensors::getFileDescriptor() const
+{
+	return port_fd;
+}

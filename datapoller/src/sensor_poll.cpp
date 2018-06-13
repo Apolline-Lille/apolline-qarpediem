@@ -27,8 +27,14 @@ static
 void poll_sensor(void* poll_ptr, string id, double sensibility, double offset){
 	time_t* poll = static_cast<time_t*>(poll_ptr);
 	string query = "sensors::" + id;
+	
+	// Flush serial port
+	usleep(10000);
+	tcflush(sensors.getFileDescriptor(), TCIFLUSH);
+	
+	// Query
 	QueryResult result = sensors.query(query.c_str());
-	float data;
+	float data = 0;
 
 	if(result.get_data(&data)){
 		cout << id << ": " << data << endl;
