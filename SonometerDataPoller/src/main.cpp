@@ -144,6 +144,9 @@ int main(int argc, char *argv[])
 				{
 					ready = digitalRead(GPIO_PIN);
 
+					// Removing expired polls
+					database->delete_old_polls(time(NULL) - data_lifetime);
+
 					// Timer pollExecTime : Its main purpose is to compensate the execution time of one iteration of the loop.
 					// Indeed, the iteration can last 2 to 3 seconds to request, read and store data in the database.
 					// So, we compensate to avoid timing offsets.
