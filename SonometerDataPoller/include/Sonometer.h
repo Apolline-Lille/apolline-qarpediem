@@ -1,3 +1,9 @@
+/**
+* Sonometer.h
+* Definition of the Sonometer class
+*
+* Contributor: Sébastien Maes
+*/
 #ifndef __SONOMETER__
 #define __SONOMETER__
 

@@ -1,3 +1,10 @@
+/**
+* sonometer.cpp
+* Implementation of the Sonometer class with all the methods needed
+* to request and retrieve data.
+*
+* Contributor: Sébastien Maes
+*/
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>

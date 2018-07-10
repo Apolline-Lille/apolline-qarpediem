@@ -1,5 +1,10 @@
+/**
+* timer.cpp
+* Implementation of the Timer class
+*
+* Contributor: Sébastien Maes
+*/
 #include <Timer.h>
-
 
 // Class constructor
 Timer::Timer()

@@ -1,3 +1,9 @@
+/**
+* main.cpp
+* Main function of the Sonometer Data Poller program
+*
+* Contributor: Sébastien Maes
+*/
 #include <fstream>
 #include <ctime>
 #include <csignal>
@@ -82,7 +88,6 @@ int main(int argc, char *argv[])
 	time_t data_lifetime = (time_t)stoll(database->get_config("lifetime_data"));
 	auto serial_port = database->get_config("sonometer_port");
 
-
 	// MAIN LOOP
 	while (main_loop)
 	{
@@ -100,17 +105,17 @@ int main(int argc, char *argv[])
 			// Data polling/retrieving start here
 			if (init == 1)
 			{
-				while(ready == 0){
+				while (ready == 0)
+				{
 					ready = digitalRead(GPIO_PIN);
-					
 				}
 				// Read "H#" to make sure the baudrate is OK.
 				sonometer.readData(dataBuffer);
-				
+
 				sleep(40);
-				
+
 				sonometer.clear(dataBuffer);
-				
+
 				// Read data
 				sonometer.sendRequest();
 				sonometer.readData(dataBuffer);
@@ -138,59 +143,51 @@ int main(int argc, char *argv[])
 				cout << "Init frame received" << endl;
 
 				if (poll_count == 0)
-					sleep(50);
+				sleep(50);
+			}
 
-				while (retrieve_data)
+			
+
+			while (retrieve_data)
+			{
+				ready = digitalRead(GPIO_PIN);
+
+				// Removing expired polls
+				database->delete_old_polls(time(NULL) - data_lifetime);
+
+				// Read sound level data
+				if (ready)
 				{
-					ready = digitalRead(GPIO_PIN);
+					sonometer.clear(dataBuffer);
 
-					// Removing expired polls
-					database->delete_old_polls(time(NULL) - data_lifetime);
+					sonometer.sendRequest();
+					sonometer.readData(dataBuffer);
+					sonometer.processData(dataBuffer, database);
 
-					// Timer pollExecTime : Its main purpose is to compensate the execution time of one iteration of the loop.
-					// Indeed, the iteration can last 2 to 3 seconds to request, read and store data in the database.
-					// So, we compensate to avoid timing offsets.
-					Timer pollExecTime; // Start and reset the timer for each loop (constructor)
+					sonometer.displayData(dataBuffer);
 
-					// Read sound level data
-					if (ready)
-					{
-						sonometer.clear(dataBuffer);
+					poll_count++; // Total number of polls since the beginning of the execution of the program
+					nb_loop++;	// Number of loops until we receive an init frame
 
-						sonometer.sendRequest();
-						sonometer.readData(dataBuffer);
-						sonometer.processData(dataBuffer, database);
+					cout << "Nb loop: " << nb_loop << endl;
+					cout << "Nb polls: " << poll_count << endl;
+					cout << "Time elapsed: " << globalTimer.elapsed() << "s" << endl;
 
-						sonometer.displayData(dataBuffer);
-
-						poll_count++; // Total number of polls since the beginning of the execution of the program
-						nb_loop++;	// Number of loops until we receive an init frame
-
-						cout << "Nb loop: " << nb_loop << endl;
-						cout << "Nb polls: " << poll_count << endl;
-						cout << "Time elapsed: " << globalTimer.elapsed() << "s" << endl;
-
-						//sleep(15 - (int)pollExecTime.elapsed());
-					}
-
-					if (sonometer.isInitFrameReceived(dataBuffer) == true)
-					{
-						break; // Exiting the loop
-					}
-
-					// SIGNALS HANDLING
-					// We can use an interrupt signal to stop the program at any time
-					// (For example, by pressing Ctrl + C)
-					signal(SIGINT, stop_datapoller);
 				}
+
+				if (sonometer.isInitFrameReceived(dataBuffer) == true)
+				{
+					break; // Exiting the loop
+				}
+
+				// SIGNALS HANDLING
+				// We can use an interrupt signal to stop the program at any time
+				// (For example, by pressing Ctrl + C)
+				signal(SIGINT, stop_datapoller);
 
 				nb_loop = 0;
 			}
-			else
-			{
-				sonometer.clear(dataBuffer);
-				cout << "Init frame NOT received" << endl;
-			}
+
 		}
 		else
 		{

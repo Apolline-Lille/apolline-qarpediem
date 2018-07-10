@@ -1,3 +1,9 @@
+/**
+* Timer.h
+* Definition of the Timer class
+*
+* Contributor: Sébastien Maes
+*/
 #ifndef __TIMER__
 #define __TIMER__
 
