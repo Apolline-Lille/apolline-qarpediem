@@ -184,8 +184,6 @@ int main(int argc, char *argv[])
 				// We can use an interrupt signal to stop the program at any time
 				// (For example, by pressing Ctrl + C)
 				signal(SIGINT, stop_datapoller);
-
-				nb_loop = 0;
 			}
 
 		}
