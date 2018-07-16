@@ -49,7 +49,10 @@ int main(int argc, char* argv[]){
 		try {
 			if(mode == "ip"){
 				runtime_ip();
-			} else {
+			}else if(mode == "lorawan"){
+				runtime_lorawan();
+			} 
+			else {
 				throw runtime_error(mode + " is not a supported send mode");
 			}
 		} catch(std::exception& e){

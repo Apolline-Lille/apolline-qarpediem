@@ -121,7 +121,7 @@ static void send_poll(time_t poll_time)
 
 static void send_polls()
 {
-    vector<time_t> polls = database->get_sendable_polls(1000);
+    vector<time_t> polls = database->get_sendable_polls(100000);
     for (const auto &poll_time : polls)
     {
         send_poll(poll_time);
