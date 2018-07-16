@@ -88,6 +88,16 @@ string SensorsDatabase::get_config(string config){
 	return value;
 }
 
+static const char* set_config_sql =
+"UPDATE config.settings SET value=? WHERE name=?;";
+void SensorsDatabase::set_config(string config, float new_value){
+	Statement stmt(db, set_config_sql);
+
+	stmt.bind_value(1, (double)new_value);
+	stmt.bind_value(2, config);
+	stmt.execute();
+}
+
 static const char* get_sensors_settings =
 "SELECT identifier, sensibility, offset FROM config.sensors;";
 void SensorsDatabase::for_each_sensor(void* user, sensors_cb_t callback){
@@ -156,4 +166,5 @@ void SensorsDatabase::delete_old_polls(time_t older_than){
 	stmt.bind_value(1, (sqlite3_int64) older_than);
 	stmt.execute();
 }
+
 

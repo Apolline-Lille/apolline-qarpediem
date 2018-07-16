@@ -53,7 +53,7 @@ void SensorsDatabase::create_poll(time_t poll){
 *	void SensorsDatabase::push_data_sql
 */
 static const char* push_data_sql =
-"INSERT INTO sensors.data (sensor_identifier, data, poll_time) VALUES(?,?,?);";
+"INSERT INTO sensors.data (sensor_identifier, data, poll_time) VALUES(?,?,?)";
 
 void SensorsDatabase::push_data(string sensor, time_t poll, double data){
 	Statement stmt(db, push_data_sql);
@@ -113,7 +113,7 @@ void SensorsDatabase::for_each_sensor(void* user, sensors_cb_t callback){
 
 
 static const char* get_sensor_data_for_poll_sql =
-"SELECT sensor_identifier, data FROM sonometer.data WHERE poll_time = ?;";
+"SELECT sensor_identifier, data FROM sonometer.data WHERE poll_time = ?";
 SensorsDatabase::poll_t SensorsDatabase::get_poll(time_t poll_time){
 	Statement stmt(db, get_sensor_data_for_poll_sql);
 	poll_t poll;
@@ -131,7 +131,7 @@ SensorsDatabase::poll_t SensorsDatabase::get_poll(time_t poll_time){
 }
 
 static const char* get_sonometer_data_for_poll_sql =
-"SELECT sensor_identifier, data FROM sonometer.sonometer_data WHERE poll_time = ?;";
+"SELECT sensor_identifier, data FROM sonometer.sonometer_data WHERE poll_time = ?";
 SensorsDatabase::poll_t SensorsDatabase::get_sonometer_poll(time_t poll_time){
 	Statement stmt(db, get_sonometer_data_for_poll_sql);
 	poll_t poll;

@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Class constructor
 SensorsDatabase::SensorsDatabase(string path, bool configure){
 	int rc = sqlite3_open(":memory:", &db);
 	if(rc == SQLITE_OK){
@@ -29,28 +28,20 @@ SensorsDatabase::SensorsDatabase(string path, bool configure){
 	}
 }
 
-// Class Destructor
 SensorsDatabase::~SensorsDatabase(void){
 	sqlite3_close(db);
 }
 
-/*
-*	void SensorsDatabase::create_poll
-*/
 static const char* create_poll_sql =
 "INSERT INTO sensors.polls (created) VALUES(?);";
-
 void SensorsDatabase::create_poll(time_t poll){
 	Statement stmt(db, create_poll_sql);
 	stmt.bind_value(1, (sqlite3_int64) poll);
 	stmt.execute();
 }
 
-/*
-*	void SensorsDatabase::push_data_sql
-*/
 static const char* push_data_sql =
-"INSERT INTO sensors.data (sensor_identifier, data, poll_time) VALUES(?,?,?);";
+"INSERT INTO sensors.data (sensor_identifier, data, poll_time) VALUES(?,?,?)";
 void SensorsDatabase::push_data(string sensor, time_t poll, double data){
 	Statement stmt(db, push_data_sql);
 	stmt.bind_value(1, sensor);
@@ -59,9 +50,6 @@ void SensorsDatabase::push_data(string sensor, time_t poll, double data){
 	stmt.execute();
 }
 
-/*
-*	void SensorsDatabase::commit_poll_sql
-*/
 static const char* commit_poll_sql =
 "UPDATE sensors.polls SET done=1 WHERE created=?;";
 void SensorsDatabase::commit_poll(time_t poll){
@@ -109,7 +97,7 @@ void SensorsDatabase::for_each_sensor(void* user, sensors_cb_t callback){
 
 
 static const char* get_sensor_data_for_poll_sql =
-"SELECT sensor_identifier, data FROM sensors.data WHERE poll_time = ?;";
+"SELECT sensor_identifier, data FROM sensors.data WHERE poll_time = ?";
 SensorsDatabase::poll_t SensorsDatabase::get_poll(time_t poll_time){
 	Statement stmt(db, get_sensor_data_for_poll_sql);
 	poll_t poll;
