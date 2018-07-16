@@ -93,12 +93,7 @@ static void send_poll(time_t poll_time)
 
     dataPayload.poll_time = (uint32_t)poll_time;
 
-    uint8_t LorawanPayload[payloadSize] = {(uint8_t)dataPayload.la10, (uint8_t)dataPayload.la50, (uint8_t)dataPayload.la90,
-                                           (uint8_t)dataPayload.avgLaEq, (uint8_t)dataPayload.freqMax, (uint8_t)dataPayload.avgCGS,
-                                           (uint8_t)dataPayload.nEvtLaEq, (uint8_t)dataPayload.tEvtLaEq, (uint8_t)dataPayload.nEvt60db, (uint8_t)dataPayload.tEvt60db};
-
-    //status = LoRaWAN.sendConfirmed(PORT, (uint8_t *)&payload, (uint16_t)sizeof(payload));
-    status = LoRaWAN.sendConfirmed(PORT, LorawanPayload, payloadSize);
+    status = LoRaWAN.sendConfirmed(PORT, (uint8_t *)&payload, (uint16_t)sizeof(payload));
 
     cout << "Send Payload: state " << status << endl;
     if (status == 0)
@@ -229,7 +224,7 @@ void runtime_lorawan()
     {
         do
         {
-            cout << "LoRaWAN module initialization..."
+            cout << "LoRaWAN module initialization..." << endl;
             init = initLoraWanModule();
         } while (init == 0);
 

@@ -112,6 +112,7 @@ public:
 	poll_t get_poll(time_t poll_time);
 
 	std::string get_config(std::string config);
+	void set_config(string config, float new_value);
 };
 
 #endif // __QARPEDIEM_SENSORS_DATABASE__
