@@ -10,7 +10,9 @@ SensorsDatabase::SensorsDatabase(string path, bool configure){
 	int rc = sqlite3_open("", &db);
 	if(rc == SQLITE_OK){
 		
-		
+		Statement(db, "PRAGMA foreign_keys=on;").execute();
+		Statement(db, "PRAGMA journal_mode=WAL;").execute();
+
 		string sensors = "ATTACH DATABASE ";
 		sensors += ("'" + path + "/sonometer.db' AS sonometer;");
 		cout << sensors << endl;
@@ -21,9 +23,7 @@ SensorsDatabase::SensorsDatabase(string path, bool configure){
 
 		Statement(db, sensors).execute();
 		Statement(db, config).execute();
-
-		Statement(db, "PRAGMA foreign_keys=on;").execute();
-		Statement(db, "PRAGMA journal_mode=WAL;").execute();
+	
 
 		if(configure){
 			init_database();
