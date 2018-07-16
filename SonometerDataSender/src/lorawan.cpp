@@ -93,7 +93,7 @@ static void send_poll(time_t poll_time)
 
     dataPayload.poll_time = (uint32_t)poll_time;
 
-    status = LoRaWAN.sendConfirmed(PORT, (uint8_t *)&payload, (uint16_t)sizeof(payload));
+    status = LoRaWAN.sendConfirmed(PORT, (uint8_t *)&dataPayload, (uint16_t)sizeof(dataPayload));
 
     cout << "Send Payload: state " << status << endl;
     if (status == 0)
