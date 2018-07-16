@@ -15,6 +15,7 @@ SensorsDatabase* database;
 static bool main_loop = true;
 
 void runtime_ip(void);
+void runtime_lorawan(void);
 bool sync_time_ip(void);
 
 static pid_t get_poller_pid(void){
