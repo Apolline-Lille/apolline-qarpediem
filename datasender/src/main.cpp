@@ -11,6 +11,7 @@ using namespace std;
 SensorsDatabase* database;
 static bool main_loop = true;
 
+void runtime_lorawan(void);
 void runtime_ip(void);
 bool sync_time_ip(void);
 
@@ -42,14 +43,18 @@ int main(int argc, char* argv[]){
 		try {
 			if(mode == "ip"){
 				runtime_ip();
-			} else {
+			}
+			else if(mode == "lorawan"){
+				runtime_lorawan();
+			} 
+			else {
 				throw runtime_error(mode + " is not a supported send mode");
 			}
 		} catch(std::exception& e){
 			cerr << "error: " << endl << e.what() << endl;
 		}
 
-		kill(get_poller_pid(), SIGUSR1);
+		//kill(get_poller_pid(), SIGUSR1);
 		sleep(1);
 	}
 

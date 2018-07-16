@@ -109,9 +109,11 @@ public:
 	void for_each_sensor(void* user, sensors_cb_t callback);
 
 	std::vector<time_t> get_sendable_polls(size_t max = 100);
+	std::vector<time_t> get_sendable_sonometer_polls(size_t max = 100);
 	poll_t get_poll(time_t poll_time);
 
 	std::string get_config(std::string config);
+	void set_config(std::string config, float new_value);
 };
 
 #endif // __QARPEDIEM_SENSORS_DATABASE__

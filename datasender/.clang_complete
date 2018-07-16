@@ -1,0 +1,6 @@
+-Wall
+-Werror
+-Iinclude
+-Ijsoncpp/dist
+-g
+-std=c++11

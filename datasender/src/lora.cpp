@@ -283,7 +283,6 @@ static void initialisation_SX(){
         printf("SX1272 initialization failed\n");}
 
 
-
 }
 
 void print_Byte(uint8_t * tab, float * value_trame){
@@ -434,7 +433,7 @@ static void init_lora(){
     // recover_real_time(time_for_rasp);
 }
 
-void runtime_lora(void){
+void runtime_lora(){
 	static time_t last_send = time_monotonic();
 
 	if(!lora_initialized){

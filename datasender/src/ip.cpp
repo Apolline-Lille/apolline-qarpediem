@@ -1,12 +1,13 @@
 #include <json/json.h>
 #include <unordered_map>
-#include <SensorsDatabase.h>
 #include <sstream>
 #include <ctime>
 #include <string>
 #include <unistd.h>
 #include <cstdint>
 #include <curl/curl.h>
+
+#include <SensorsDatabase.h>
 
 using namespace std;
 
@@ -184,8 +185,9 @@ void runtime_ip(void){
 
 	static time_t last_send = time_monotonic();
 	time_t send_interval = stoll(database->get_config("interval_ip"));
+
 	time_t now = time_monotonic();
-	vector<time_t> polls; 
+	vector<time_t> polls;
 	if(now - last_send >= send_interval){
 		polls = database->get_sendable_polls(100);
 		while(polls.size() > 0){
