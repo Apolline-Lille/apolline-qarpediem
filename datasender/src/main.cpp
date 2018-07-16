@@ -54,7 +54,7 @@ int main(int argc, char* argv[]){
 			cerr << "error: " << endl << e.what() << endl;
 		}
 
-		kill(get_poller_pid(), SIGUSR1);
+		//kill(get_poller_pid(), SIGUSR1);
 		sleep(1);
 	}
 
