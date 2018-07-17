@@ -226,7 +226,7 @@ void runtime_lorawan()
         {
             cout << "LoRaWAN module initialization..." << endl;
             init = initLoraWanModule();
-        } while (init == 0);
+        } while (init != 0);
 
         database->set_config("interval_lora", interval);
         database->set_config("interval_polling", interval);
