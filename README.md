@@ -20,7 +20,7 @@
 
 The Gateway is accessible, over the small LAN by any computer connected to Linksys-CSAM2 Router (Wifi or Ethernet), via this address : 10.42.0.251
 
-Username and password is written below the gateway.
+Username and password are written below the gateway.
 
 ## Access LoRaWAN Server Admin Interface
 
