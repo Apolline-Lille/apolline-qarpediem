@@ -30,7 +30,7 @@ const int NODE_ADDRESS_SIZE = 2;
 //-------------------------------------------------------------------
 //char NWK_SESSION_KEY[] = "17EBA04EEA7623139F259D52AE348A2F"; // ABP-only
 //char APP_SESSION_KEY[] = "D7523CDA0B3F9CB7CFF9BA9474F479B9"; // ABP-only
-char APP_KEY[] = "D7523CDA0B3F9CB7CFF9BA9474F479B9"; // 128-bit
+char APP_KEY[] = "D7523CDA0B3F9CB7CFF9BA9474F479F9"; // 128-bit
 char APP_EUI[] = "CFF9BA9474F479B9";                 // 64-bit
 uint8_t PORT = 3;                                    // Define port to use in Back-End: from 1 to 223
 uint8_t POWER = 1;                                   // 0 -> 20 dBm (if supported), 1 -> 14 dBm, 2 -> 11 dBm, 3 -> 8 dBm, 4 -> 5 dBm, 5 -> 2 dBm
@@ -138,8 +138,6 @@ static int initLoraWanModule()
     status = LoRaWAN.ON(SOCKET0);
     cout << "Setting power ON: state " << status << endl;
 
-    status |= LoRaWAN.factoryReset();
-
     // Get the preprogrammed unique identifier
     status |= LoRaWAN.getEUI();
     cout << "Get preprogrammed EUI: state " << status << endl;
@@ -169,27 +167,12 @@ static int initLoraWanModule()
     status |= LoRaWAN.getAppEUI();
     cout << "Set/Get Application EUI: state " << status << endl;
 
-    // Channel configuration
-    uint32_t freq = 867100000;
-    int n_ch = 3;
-    for (uint8_t ch = 3; ch <= 7; ch++)
-    {
-        status |= LoRaWAN.setChannelFreq(ch, freq);
-        cout << "Set Freq " << freq << "for channel " << n_ch << ": state " << status << endl;
-        n_ch++;
-        freq += 200000;
-    }
-
-    // Set Power
-    //status |= LoRaWAN.setPower(POWER);
-    //cout << "Set Power: state " << status << endl;
-
     // Set/Get Adaptive data rate
     status |= LoRaWAN.setADR("on");
     status |= LoRaWAN.getADR();
     cout << "Enable Adaptive Data Rate: state " << status << endl;
 
-    // Join a network
+    // Join a network (Over The Air Activation)
     status |= LoRaWAN.joinOTAA();
     cout << "Join a network (OTAA): state " << status << endl;
     if (status == 0)
