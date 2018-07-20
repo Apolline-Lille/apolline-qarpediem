@@ -7,6 +7,7 @@
 */
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include <time.h>
 #include <vector>
@@ -60,6 +61,14 @@ struct Payload
     float dust_pm10;
     uint32_t poll_time; // 4 bytes
 };
+
+void write_device_eui(){
+	ofstream file("/home/qarpediem/lorawan-device-eui.dat", ios::out);
+	string write_device_eui = LoRaWAN._devEUI;
+	file.write(deviceEUI.c_str(), deviceEUI.length());
+	file.close();
+}
+
 
 static time_t time_monotonic()
 {
@@ -226,7 +235,7 @@ void runtime_lorawan()
             cout << "LoRaWAN module initialization..." << endl;
             init = initLoraWanModule();
         } while (init != 0);
-
+        write_device_eui();
         database->set_config("interval_lora", interval);
         database->set_config("interval_polling", interval);
         lorawan_initialized = true;
