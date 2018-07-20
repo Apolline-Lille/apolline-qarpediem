@@ -64,7 +64,7 @@ struct Payload
 
 void write_device_eui(){
 	ofstream file("/home/qarpediem/lorawan-device-eui.dat", ios::out);
-	string write_device_eui = LoRaWAN._devEUI;
+	string deviceEUI = LoRaWAN._devEUI;
 	file.write(deviceEUI.c_str(), deviceEUI.length());
 	file.close();
 }
