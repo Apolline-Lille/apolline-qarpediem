@@ -1,0 +1,126 @@
+\hypertarget{classInterQarpe_1_1QueryResult}{\section{Inter\+Qarpe\+:\+:Query\+Result Class Reference}
+\label{classInterQarpe_1_1QueryResult}\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+}
+
+
+Represent the result of a query.  
+
+
+
+
+{\ttfamily \#include $<$Query\+Result.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} \{ {\bfseries R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+O\+K}, 
+{\bfseries R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+E\+R\+R\+O\+R}, 
+{\bfseries B\+A\+D\+\_\+\+Q\+U\+E\+R\+Y}, 
+{\bfseries T\+I\+M\+E\+O\+U\+T}
+ \}
+\begin{DoxyCompactList}\small\item\em Different results a query can take\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInterQarpe_1_1QueryResult_aeaa273884f3d8494f3451ef1da3afcba}{Query\+Result} (\hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} status, uint8\+\_\+t $\ast$data, size\+\_\+t data\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result}. \end{DoxyCompactList}\item 
+\hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} \hyperlink{classInterQarpe_1_1QueryResult_a08d4addcab59886e2e76f1028fe3ff9b}{get\+\_\+result} (void)
+\begin{DoxyCompactList}\small\item\em Return the current status of the query. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \hyperlink{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}{get\+\_\+data} (T $\ast$data)
+\begin{DoxyCompactList}\small\item\em Return data received from the other device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represent the result of a query. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & represent the data the query should \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!result\+\_\+t@{result\+\_\+t}}
+\index{result\+\_\+t@{result\+\_\+t}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection[{result\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Inter\+Qarpe\+::\+Query\+Result\+::result\+\_\+t}}}\label{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}
+
+
+Different results a query can take\+: 
+
+
+\begin{DoxyItemize}
+\item R\+E\+S\+P\+O\+N\+S\+E\+\_\+\mbox{[}O\+K$\vert$\+E\+R\+R\+O\+R\mbox{]}\+: Positive/negative response from the other device.
+\item B\+A\+D\+\_\+\+Q\+U\+E\+R\+Y\+: Error received from the other device.
+\item T\+I\+M\+E\+O\+U\+T\+: No response from the other device. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classInterQarpe_1_1QueryResult_aeaa273884f3d8494f3451ef1da3afcba}{\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!Query\+Result@{Query\+Result}}
+\index{Query\+Result@{Query\+Result}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection[{Query\+Result}]{\setlength{\rightskip}{0pt plus 5cm}Inter\+Qarpe\+::\+Query\+Result\+::\+Query\+Result (
+\begin{DoxyParamCaption}
+\item[{{\bf Query\+Result\+::result\+\_\+t}}]{result, }
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{size\+\_\+t}]{data\+\_\+size}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1QueryResult_aeaa273884f3d8494f3451ef1da3afcba}
+
+
+Constructor of \hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & of the query \\
+\hline
+{\em data} & a pointer to the data \\
+\hline
+{\em data\+\_\+size} & number of bytes available in the data buffer \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}{\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!get\+\_\+data@{get\+\_\+data}}
+\index{get\+\_\+data@{get\+\_\+data}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection[{get\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool Inter\+Qarpe\+::\+Query\+Result\+::get\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}
+
+
+Return data received from the other device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & will be returned through this pointer if any \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data that will be returned\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if we were able do recover enough data to build a T 
+\end{DoxyReturn}
+\hypertarget{classInterQarpe_1_1QueryResult_a08d4addcab59886e2e76f1028fe3ff9b}{\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!get\+\_\+result@{get\+\_\+result}}
+\index{get\+\_\+result@{get\+\_\+result}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection[{get\+\_\+result}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Query\+Result\+::result\+\_\+t} Inter\+Qarpe\+::\+Query\+Result\+::get\+\_\+result (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classInterQarpe_1_1QueryResult_a08d4addcab59886e2e76f1028fe3ff9b}
+
+
+Return the current status of the query. 
+
+\begin{DoxyReturn}{Returns}
+result of query 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Query\+Result.\+h\end{DoxyCompactItemize}

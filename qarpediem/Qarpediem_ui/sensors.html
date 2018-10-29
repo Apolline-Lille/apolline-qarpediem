@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Qarpediem - Control Center</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+		<style>
+			.input-group-addon {
+				min-width: 130px;
+				text-align: right;
+			}
+		</style>
+
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">QARPEDIEM Control Center <img id="logo" src="app.png" /></a>
+				</div>
+
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Sensors Data</a></li>
+					<li class="active"><a href="sensors.html">Sensors Manager</a></li>
+					<li><a href="config.html">Settings</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<h2>Sensors Manager</h2>
+
+			<div class="container-fluid" id="sensors">
+
+				<form class="form-horizontal panel" id="sensor_template">
+					<div class="form-group panel-body">
+						<h4>blbl</h4>
+
+						<div class="input-group">
+							<div class="input-group-addon">Display Name</div>
+							<input type="text" name="display_name" class="form-control" placeholder="No data available" required>
+						</div>
+
+						<div class="input-group">
+							<div class="input-group-addon">Sensitivity</div>
+							<input type="number" name="sensibility" class="form-control" placeholder="No data available" required>
+						</div>
+
+						<div class="input-group">
+							<div class="input-group-addon">Offset</div>
+							<input type="number" name="offset" class="form-control" placeholder="No data available" required>
+						</div>
+
+						<div class="input-group">
+							<div class="input-group-addon">Chart Color</div>
+							<input type="color" name="chart_color" class="form-control" placeholder="No data available" required>
+						</div>
+
+						<div class="input-group">
+							<button class="btn btn-primary" type="submit">Apply</button>
+						</div>					
+					<div>
+				</form>
+			</div>
+		</div>
+
+		<script type=text/javascript src="js/sensors.js"></script>
+	</body>
+</html>

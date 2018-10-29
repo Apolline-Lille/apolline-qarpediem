@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Qarpediem - Control Center</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>	
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">QARPEDIEM Control Center <img id="logo" src="app.png" /></a>
+				</div>
+
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Sensors Data</a></li>
+					<li><a href="sensors.html">Sensors Manager</a></li>
+					<li class="active"><a href="config.html">Settings</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<h2>Node Configuration</h2>
+
+			<form class="form-horizontal container-fluid" id="config_form">
+				<div class="form-group">
+					<label for="node_address" class="col-sm-3 control-label">Node Address</label>
+					<div class="col-sm-5">
+						<input type="text" name="node_address" class="form-control" pattern=".{2,2}" maxlength="2" placeholder="No data available" required>
+					</div>
+				</div>
+					
+				<div class="form-group">
+					<label for="serial_port" class="col-sm-3 control-label">Serial Port</label>
+					<div class="col-sm-5">
+						<input type="text" name="serial_port" class="form-control" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="lifetime_data" class="col-sm-3 control-label">Data lifetime in Control Center</label>
+					<div class="col-sm-5">
+						<input type="number" name="lifetime_data" class="form-control" min="0" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="interval_polling" class="col-sm-3 control-label">Time between sensor polling</label>
+					<div class="col-sm-5">
+						<input type="number" name="interval_polling" class="form-control" min="0" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="interval_ip" class="col-sm-3 control-label">Time between sending (IP)</label>
+					<div class="col-sm-5">
+						<input type="number" name="interval_ip" class="form-control" min="0" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="interval_lora" class="col-sm-3 control-label">Time between sending (LoRa)</label>
+					<div class="col-sm-5">
+						<input type="number" name="interval_lora" class="form-control" min="0" placeholder="No data available" required>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="send_mode" class="col-sm-3 control-label">Method for sending data</label>
+					<div class="col-sm-5">
+						<label class="radio-inline"><input type="radio" name="send_mode" required value="ip">IP (Ethernet/WiFi/...)</label>
+						<label class="radio-inline"><input type="radio" name="send_mode" required value="lora">LoRa</label>
+						<label class="radio-inline"><input type="radio" name="send_mode" required value="nop">Do not send data</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="server_host" class="col-sm-3 control-label">Server Hostname</label>
+					<div class="col-sm-5">
+						<input type="text" name="server_host" class="form-control" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="server_port" class="col-sm-3 control-label">Server Port</label>
+					<div class="col-sm-5">
+						<input type="number" name="server_port" class="form-control" min="1" max="65535" placeholder="No data available" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button id="apply_settings" type="submit" class="btn btn-primary">Save & Apply</button>
+				</div>
+			</form>
+		</div>
+
+		<script type="text/javascript" src="js/config.js"></script>
+	</body>
+</html>

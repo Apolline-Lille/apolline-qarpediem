@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">SensorView</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a id="/totemView" href="/totemView">TotemView</a></li>
+      <li><a id="/connectedTableView" href="/connectedTableView">ConnectedTableView</a></li>
+      <li><a id="/airQualityView" href="/airQualityView">AirQualityView</a></li>
+      <li><a id="/sonometerView" href="/sonometerView">SonometerView</a></li>
+      <li><a id="/tableAvailabilityView" href="/tableAvailabilityView">TableAvailabilityView</a></li>
+      <li><a class="liveData" id="/liveTableAvailabilityView" href="/liveTableAvailabilityView">Live TableAvailabilityView</a></li>
+      <li><a class="liveData" id="/liveConnectedTable" href="/liveConnectedTable">Live ConnectedTableView</a></li>
+      <li><a class="liveData" id="/liveSonometer" href="/liveSonometer">Live SonometerView</a></li>
+      <li><a class="liveData" id="/liveAirQuality" href="/liveAirQuality">Live AirQualityView</a></li>
+      <li><a class="liveData" id="/liveTotemView" href="/liveTotemView">Live TotemView</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+  function setCorrectCurrentButton(){
+      var baliseA = document.getElementById(window.location.pathname);
+      var baliseLi = baliseA.parentNode;
+      baliseLi.setAttribute("class","active");
+  }
+  setCorrectCurrentButton()
+</script>

@@ -1,0 +1,72 @@
+\hypertarget{classSensors}{\section{Sensors Class Reference}
+\label{classSensors}\index{Sensors@{Sensors}}
+}
+
+
+Inheritance diagram for Sensors\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classSensors__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sensors\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classSensors__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSensors_a6405f7378789aba2b97a178fa7d70dc8}{open\+\_\+port} (const char $\ast$port)
+\begin{DoxyCompactList}\small\item\em Open a port (e.\+g /dev/tty\+S0 on Linux, C\+O\+M1 on Windows etc.) \end{DoxyCompactList}\item 
+bool \hyperlink{classSensors_ad24b2e04c9190324a204c0f9881df004}{close\+\_\+port} ()
+\begin{DoxyCompactList}\small\item\em Close the current port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSensors_ad24b2e04c9190324a204c0f9881df004}{\index{Sensors@{Sensors}!close\+\_\+port@{close\+\_\+port}}
+\index{close\+\_\+port@{close\+\_\+port}!Sensors@{Sensors}}
+\subsubsection[{close\+\_\+port}]{\setlength{\rightskip}{0pt plus 5cm}bool Sensors\+::close\+\_\+port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSensors_ad24b2e04c9190324a204c0f9881df004}
+
+
+Close the current port. 
+
+If it's not opened, we return -\/1. If an error occur while closing the port, we return -\/1 as well. The Linux kernel assure us that close will always free the descriptor. errno will be said on case of an error.
+
+\begin{DoxyReturn}{Returns}
+true if we succesfully closed the current file descriptor with no error 
+\end{DoxyReturn}
+\hypertarget{classSensors_a6405f7378789aba2b97a178fa7d70dc8}{\index{Sensors@{Sensors}!open\+\_\+port@{open\+\_\+port}}
+\index{open\+\_\+port@{open\+\_\+port}!Sensors@{Sensors}}
+\subsubsection[{open\+\_\+port}]{\setlength{\rightskip}{0pt plus 5cm}bool Sensors\+::open\+\_\+port (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classSensors_a6405f7378789aba2b97a178fa7d70dc8}
+
+
+Open a port (e.\+g /dev/tty\+S0 on Linux, C\+O\+M1 on Windows etc.) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & port designation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the port was succesfully opened 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Sensors.\+h\end{DoxyCompactItemize}
