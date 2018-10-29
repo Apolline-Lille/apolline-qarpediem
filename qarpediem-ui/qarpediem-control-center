@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd $HOME/qarpediem-ui
-$HOME/qarpediem-ui/node8/bin/electron .
