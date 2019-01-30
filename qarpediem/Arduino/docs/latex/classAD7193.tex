@@ -1,0 +1,372 @@
+\hypertarget{classAD7193}{}\section{A\+D7193 Class Reference}
+\label{classAD7193}\index{A\+D7193@{A\+D7193}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structAD7193_1_1config__t}{config\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAD7193_a665c9b5d15057c8ceb8f67ce9fb0cdf9}\label{classAD7193_a665c9b5d15057c8ceb8f67ce9fb0cdf9}} 
+enum {\bfseries channel\+\_\+t} \{ \newline
+{\bfseries C\+H\+A\+N0} = 0, 
+{\bfseries C\+H\+A\+N1} = 1, 
+{\bfseries C\+H\+A\+N2} = 2, 
+{\bfseries C\+H\+A\+N3} = 3, 
+\newline
+{\bfseries C\+H\+A\+N4} = 4, 
+{\bfseries C\+H\+A\+N5} = 5, 
+{\bfseries C\+H\+A\+N6} = 6, 
+{\bfseries C\+H\+A\+N7} = 7, 
+\newline
+{\bfseries C\+H\+A\+N\+T\+E\+MP} = 8, 
+{\bfseries C\+H\+A\+N\+S\+H\+O\+RT} = 9
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_a57cf33f5cfeef5051b00dca5dcafa262}\label{classAD7193_a57cf33f5cfeef5051b00dca5dcafa262}} 
+enum {\bfseries mode\+\_\+t} \{ \newline
+{\bfseries M\+O\+D\+E\+\_\+\+C\+O\+N\+T\+C\+O\+NV} = 0, 
+{\bfseries M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+C\+O\+NV} = 1, 
+{\bfseries M\+O\+D\+E\+\_\+\+I\+D\+LE} = 2, 
+{\bfseries M\+O\+D\+E\+\_\+\+P\+W\+D\+O\+WN} = 3, 
+\newline
+{\bfseries M\+O\+D\+E\+\_\+\+I\+N\+T\+Z\+E\+R\+O\+C\+AL} = 4, 
+{\bfseries M\+O\+D\+E\+\_\+\+I\+N\+T\+F\+U\+L\+L\+C\+AL} = 5, 
+{\bfseries M\+O\+D\+E\+\_\+\+S\+Y\+S\+Z\+E\+R\+O\+C\+AL} = 6, 
+{\bfseries M\+O\+D\+E\+\_\+\+S\+Y\+S\+F\+U\+L\+L\+C\+AL} = 7
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_a01a3497c494fa903b8a02301683cd243}\label{classAD7193_a01a3497c494fa903b8a02301683cd243}} 
+enum {\bfseries clk\+\_\+t} \{ {\bfseries C\+L\+K\+\_\+\+E\+X\+T\+K1\+K2} = 0, 
+{\bfseries C\+L\+K\+\_\+\+E\+X\+T\+K2} = 1, 
+{\bfseries C\+L\+K\+\_\+\+I\+NT} = 2, 
+{\bfseries C\+L\+K\+\_\+\+I\+N\+T\+K2} = 3
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_a75e3632982027f6489855ec90c64e33a}\label{classAD7193_a75e3632982027f6489855ec90c64e33a}} 
+enum {\bfseries polarity\+\_\+t} \{ {\bfseries B\+I\+P\+O\+L\+AR}, 
+{\bfseries U\+N\+I\+P\+O\+L\+AR}
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_adf8a372c583bb595dbd90a03a57d2b62}\label{classAD7193_adf8a372c583bb595dbd90a03a57d2b62}} 
+enum {\bfseries gain\+\_\+t} \{ \newline
+{\bfseries G\+A\+I\+N1} = 0, 
+{\bfseries G\+A\+I\+N8} = 3, 
+{\bfseries G\+A\+I\+N16} = 4, 
+{\bfseries G\+A\+I\+N32} = 5, 
+\newline
+{\bfseries G\+A\+I\+N64} = 6, 
+{\bfseries G\+A\+I\+N128} = 7
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_aec2d4a0e2b879dd2d81236cb9489a6f9}\label{classAD7193_aec2d4a0e2b879dd2d81236cb9489a6f9}} 
+enum {\bfseries difftype\+\_\+t} \{ {\bfseries D\+I\+F\+F\+\_\+\+P\+S\+E\+U\+DO}, 
+{\bfseries D\+I\+F\+F\+\_\+\+F\+U\+L\+LY}
+ \}
+\item 
+\mbox{\Hypertarget{classAD7193_ad79b77e0bb1690fd1bc34faba1fa5e8d}\label{classAD7193_ad79b77e0bb1690fd1bc34faba1fa5e8d}} 
+enum {\bfseries ref\+\_\+t} \{ {\bfseries R\+E\+F\+I\+N1}, 
+{\bfseries R\+E\+F\+I\+N2}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAD7193_a68e2fdae94a38bcd69e18c8eb0b9a95b}{A\+D7193} (uint32\+\_\+t cs\+\_\+pin, uint32\+\_\+t speed=4000000)
+\item 
+bool \hyperlink{classAD7193_a2fb0624cfd80ef47fede9203db4ae68b}{full\+\_\+scale\+\_\+calibration} (void)
+\item 
+bool \hyperlink{classAD7193_a8f58651520dbe473f2e67aeadb513d0c}{calibrate\+\_\+channel} (channel\+\_\+t channel)
+\item 
+bool \hyperlink{classAD7193_abbe6d0813d39dc3754c3f89abc81116a}{wait\+\_\+data\+\_\+available} (uint32\+\_\+t break\+\_\+time=10000)
+\item 
+double \hyperlink{classAD7193_ad3630825dd8ecdd7e24ef6e366273a41}{reading} (void)
+\item 
+double \hyperlink{classAD7193_a11dd9bbdd2f74a35495abf8647454786}{reading} (channel\+\_\+t $\ast$from\+\_\+channel)
+\item 
+double \hyperlink{classAD7193_adec3aae01cac5bb537a16647b858f196}{reading\+\_\+from\+\_\+channel} (channel\+\_\+t channel)
+\item 
+uint32\+\_\+t \hyperlink{classAD7193_a387482f8e82841faf32611b5044fbc52}{reading\+\_\+raw} (channel\+\_\+t $\ast$from\+\_\+channel)
+\item 
+uint32\+\_\+t \hyperlink{classAD7193_a1fee5a5abade344e7c1f5966ffebfddb}{reading\+\_\+from\+\_\+channel\+\_\+raw} (channel\+\_\+t channel)
+\item 
+double \hyperlink{classAD7193_aef2fc9da99f8f4aeae7add7f73b97a02}{raw\+\_\+to\+\_\+millivolts} (uint32\+\_\+t data)
+\item 
+uint32\+\_\+t \hyperlink{classAD7193_a77569593ee82b96dbe224dcb23262c5b}{get\+\_\+id} (void)
+\item 
+bool \hyperlink{classAD7193_a469f33f9363c4967b4eb95c76e846fbc}{is\+\_\+alive} (void)
+\item 
+\mbox{\Hypertarget{classAD7193_a6324eb4976647125e1a04d92d4e6d3b9}\label{classAD7193_a6324eb4976647125e1a04d92d4e6d3b9}} 
+void {\bfseries enable\+\_\+channel} (channel\+\_\+t channel)
+\item 
+\mbox{\Hypertarget{classAD7193_a47925cccd0810420a8da5e028e5688a1}\label{classAD7193_a47925cccd0810420a8da5e028e5688a1}} 
+void {\bfseries disable\+\_\+channel} (channel\+\_\+t channel)
+\item 
+\mbox{\Hypertarget{classAD7193_a27e857f32ccd4a5ae4e716da450c50c9}\label{classAD7193_a27e857f32ccd4a5ae4e716da450c50c9}} 
+void {\bfseries disable\+\_\+all\+\_\+channels} ()
+\item 
+\mbox{\Hypertarget{classAD7193_a4d24c6cc404cd65acef4586b31af7c89}\label{classAD7193_a4d24c6cc404cd65acef4586b31af7c89}} 
+void {\bfseries set\+\_\+polarity} (polarity\+\_\+t polarity)
+\item 
+\mbox{\Hypertarget{classAD7193_a235045e14deeac1aba118ef34e37aaa3}\label{classAD7193_a235045e14deeac1aba118ef34e37aaa3}} 
+void {\bfseries set\+\_\+gain} (gain\+\_\+t gain)
+\item 
+\mbox{\Hypertarget{classAD7193_ad13ef26d1aaa8ba941e9fea4b6c436ff}\label{classAD7193_ad13ef26d1aaa8ba941e9fea4b6c436ff}} 
+void {\bfseries set\+\_\+mode} (mode\+\_\+t mode)
+\item 
+\mbox{\Hypertarget{classAD7193_ae753f9fdc55acc00c0a0a28dc5116bb2}\label{classAD7193_ae753f9fdc55acc00c0a0a28dc5116bb2}} 
+void {\bfseries set\+\_\+difftype} (difftype\+\_\+t type)
+\item 
+\mbox{\Hypertarget{classAD7193_a17f4b0d8f504f19b696c91feb649ebd2}\label{classAD7193_a17f4b0d8f504f19b696c91feb649ebd2}} 
+void {\bfseries set\+\_\+chop} (bool chop)
+\item 
+\mbox{\Hypertarget{classAD7193_ab623d6ccfb1aefe8fb41a611f04f78c6}\label{classAD7193_ab623d6ccfb1aefe8fb41a611f04f78c6}} 
+void {\bfseries set\+\_\+rej60} (bool rej60)
+\item 
+\mbox{\Hypertarget{classAD7193_a8e7dd2c971617b81366c6ce44e95b2e3}\label{classAD7193_a8e7dd2c971617b81366c6ce44e95b2e3}} 
+void {\bfseries set\+\_\+reference} (ref\+\_\+t reference)
+\item 
+void \hyperlink{classAD7193_ac9bf997384928f28bee7c6cdb784f4bb}{set\+\_\+reference\+\_\+voltage} (double voltage\+\_\+mv)
+\item 
+void \hyperlink{classAD7193_a5fa5a3b5bf71472df93bb413f20ca7b6}{sync\+\_\+config} (void)
+\item 
+\hyperlink{structAD7193_1_1config__t}{config\+\_\+t} \hyperlink{classAD7193_aeca1d2066808496b08cca1274b5f330b}{get\+\_\+config} (void)
+\item 
+void \hyperlink{classAD7193_a5b066aba7096fb2db5d91661a46862da}{set\+\_\+config} (\hyperlink{structAD7193_1_1config__t}{config\+\_\+t} $\ast$config)
+\item 
+void \hyperlink{classAD7193_a5b1bbfb3b90e7034bba4f14c397ebcb4}{reset} (void)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classAD7193_acec57d6a685cf7268905efa52c8d40ed}{add\+Channel\+To\+Config} (\hyperlink{structAD7193_1_1config__t}{config\+\_\+t} $\ast$c, channel\+\_\+t chan)
+\item 
+\mbox{\Hypertarget{classAD7193_a4956f934c4a7d4d7fc19758edf1da668}\label{classAD7193_a4956f934c4a7d4d7fc19758edf1da668}} 
+static void {\bfseries remove\+Channel\+From\+Config} (\hyperlink{structAD7193_1_1config__t}{config\+\_\+t} $\ast$c, channel\+\_\+t chan)
+\item 
+\mbox{\Hypertarget{classAD7193_ab3809187f5142808a1ff265f40b4939e}\label{classAD7193_ab3809187f5142808a1ff265f40b4939e}} 
+static void {\bfseries set\+Channel\+In\+Config} (\hyperlink{structAD7193_1_1config__t}{config\+\_\+t} $\ast$c, channel\+\_\+t chan)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAD7193_a5fb463c8a969edfc08789d363af1c0e5}\label{classAD7193_a5fb463c8a969edfc08789d363af1c0e5}} 
+static const uint32\+\_\+t {\bfseries C\+O\+M\+\_\+\+R\+E\+AD} = 1 $<$$<$ 6
+\item 
+\mbox{\Hypertarget{classAD7193_ac8b2716c87830f1c53e790692f027151}\label{classAD7193_ac8b2716c87830f1c53e790692f027151}} 
+static const uint32\+\_\+t {\bfseries C\+O\+M\+\_\+\+W\+R\+I\+TE} = 0
+\item 
+\mbox{\Hypertarget{classAD7193_a052d4354bfa693785c1d6ef831fabc87}\label{classAD7193_a052d4354bfa693785c1d6ef831fabc87}} 
+static const uint32\+\_\+t {\bfseries C\+O\+M\+\_\+\+C\+R\+E\+AD} = 1 $<$$<$ 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAD7193_a68e2fdae94a38bcd69e18c8eb0b9a95b}\label{classAD7193_a68e2fdae94a38bcd69e18c8eb0b9a95b}} 
+\index{A\+D7193@{A\+D7193}!A\+D7193@{A\+D7193}}
+\index{A\+D7193@{A\+D7193}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{A\+D7193()}{AD7193()}}
+{\footnotesize\ttfamily A\+D7193\+::\+A\+D7193 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{cs\+\_\+pin,  }\item[{uint32\+\_\+t}]{speed = {\ttfamily 4000000} }\end{DoxyParamCaption})}
+
+Init the \hyperlink{classAD7193}{A\+D7193} and the S\+PI hardware 
+\begin{DoxyParams}{Parameters}
+{\em cs\+\_\+pin} & Chip Select P\+IN \\
+\hline
+{\em speed} & Clock speed (in Hz) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAD7193_acec57d6a685cf7268905efa52c8d40ed}\label{classAD7193_acec57d6a685cf7268905efa52c8d40ed}} 
+\index{A\+D7193@{A\+D7193}!add\+Channel\+To\+Config@{add\+Channel\+To\+Config}}
+\index{add\+Channel\+To\+Config@{add\+Channel\+To\+Config}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{add\+Channel\+To\+Config()}{addChannelToConfig()}}
+{\footnotesize\ttfamily void A\+D7193\+::add\+Channel\+To\+Config (\begin{DoxyParamCaption}\item[{\hyperlink{structAD7193_1_1config__t}{A\+D7193\+::config\+\_\+t} $\ast$}]{c,  }\item[{A\+D7193\+::channel\+\_\+t}]{chan }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set/\+Add/\+Remove channel in config \mbox{\Hypertarget{classAD7193_a8f58651520dbe473f2e67aeadb513d0c}\label{classAD7193_a8f58651520dbe473f2e67aeadb513d0c}} 
+\index{A\+D7193@{A\+D7193}!calibrate\+\_\+channel@{calibrate\+\_\+channel}}
+\index{calibrate\+\_\+channel@{calibrate\+\_\+channel}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{calibrate\+\_\+channel()}{calibrate\_channel()}}
+{\footnotesize\ttfamily bool A\+D7193\+::calibrate\+\_\+channel (\begin{DoxyParamCaption}\item[{A\+D7193\+::channel\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Calibrate a channel 
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel that will be calibrate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if calibration was successfull 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a2fb0624cfd80ef47fede9203db4ae68b}\label{classAD7193_a2fb0624cfd80ef47fede9203db4ae68b}} 
+\index{A\+D7193@{A\+D7193}!full\+\_\+scale\+\_\+calibration@{full\+\_\+scale\+\_\+calibration}}
+\index{full\+\_\+scale\+\_\+calibration@{full\+\_\+scale\+\_\+calibration}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{full\+\_\+scale\+\_\+calibration()}{full\_scale\_calibration()}}
+{\footnotesize\ttfamily bool A\+D7193\+::full\+\_\+scale\+\_\+calibration (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Perform a interior full scale calibration (cf. \hyperlink{classAD7193}{A\+D7193} documentation) \begin{DoxyReturn}{Returns}
+True if success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_aeca1d2066808496b08cca1274b5f330b}\label{classAD7193_aeca1d2066808496b08cca1274b5f330b}} 
+\index{A\+D7193@{A\+D7193}!get\+\_\+config@{get\+\_\+config}}
+\index{get\+\_\+config@{get\+\_\+config}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{get\+\_\+config()}{get\_config()}}
+{\footnotesize\ttfamily \hyperlink{structAD7193_1_1config__t}{A\+D7193\+::config\+\_\+t} A\+D7193\+::get\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the A\+D\+C7193 current stored configuration 
+\begin{DoxyParams}{Parameters}
+{\em sync} & Synchronize current configuration with the one from the A\+DC \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAD7193_a77569593ee82b96dbe224dcb23262c5b}\label{classAD7193_a77569593ee82b96dbe224dcb23262c5b}} 
+\index{A\+D7193@{A\+D7193}!get\+\_\+id@{get\+\_\+id}}
+\index{get\+\_\+id@{get\+\_\+id}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{get\+\_\+id()}{get\_id()}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D7193\+::get\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return the ID of the \hyperlink{classAD7193}{A\+D7193} \begin{DoxyReturn}{Returns}
+id of the A\+DC. If it return 0, the A\+DC is not responding. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a469f33f9363c4967b4eb95c76e846fbc}\label{classAD7193_a469f33f9363c4967b4eb95c76e846fbc}} 
+\index{A\+D7193@{A\+D7193}!is\+\_\+alive@{is\+\_\+alive}}
+\index{is\+\_\+alive@{is\+\_\+alive}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{is\+\_\+alive()}{is\_alive()}}
+{\footnotesize\ttfamily bool A\+D7193\+::is\+\_\+alive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if the A\+DC is answering correctly by checking the ID returned  is\+\_\+alive \begin{DoxyReturn}{Returns}
+true if the A\+DC is alive and is responding correctly 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_aef2fc9da99f8f4aeae7add7f73b97a02}\label{classAD7193_aef2fc9da99f8f4aeae7add7f73b97a02}} 
+\index{A\+D7193@{A\+D7193}!raw\+\_\+to\+\_\+millivolts@{raw\+\_\+to\+\_\+millivolts}}
+\index{raw\+\_\+to\+\_\+millivolts@{raw\+\_\+to\+\_\+millivolts}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{raw\+\_\+to\+\_\+millivolts()}{raw\_to\_millivolts()}}
+{\footnotesize\ttfamily double A\+D7193\+::raw\+\_\+to\+\_\+millivolts (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+Convert data from the data register into millivolts 
+\begin{DoxyParams}{Parameters}
+{\em data} & Data from the Data Register of the A\+DC \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value in millivolts 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_ad3630825dd8ecdd7e24ef6e366273a41}\label{classAD7193_ad3630825dd8ecdd7e24ef6e366273a41}} 
+\index{A\+D7193@{A\+D7193}!reading@{reading}}
+\index{reading@{reading}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reading()}{reading()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double A\+D7193\+::reading (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get voltage applied to a channel. You can use this variant if you have only one selected channel or if you don\textquotesingle{}t care from which channel the data come from.  reading \begin{DoxyReturn}{Returns}
+voltage applied to a channel or A\+D7193\+\_\+\+N\+O\+D\+A\+TA if the A\+DC is not responding 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a11dd9bbdd2f74a35495abf8647454786}\label{classAD7193_a11dd9bbdd2f74a35495abf8647454786}} 
+\index{A\+D7193@{A\+D7193}!reading@{reading}}
+\index{reading@{reading}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reading()}{reading()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double A\+D7193\+::reading (\begin{DoxyParamCaption}\item[{A\+D7193\+::channel\+\_\+t $\ast$}]{from\+\_\+channel }\end{DoxyParamCaption})}
+
+Get voltage applied to a channel  reading 
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+channel} & if not N\+U\+LL, return the channel the data is from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+voltage applied to channel in from\+\_\+channel or A\+D7193\+\_\+\+N\+O\+D\+A\+TA if no data is returned by the A\+DC 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_adec3aae01cac5bb537a16647b858f196}\label{classAD7193_adec3aae01cac5bb537a16647b858f196}} 
+\index{A\+D7193@{A\+D7193}!reading\+\_\+from\+\_\+channel@{reading\+\_\+from\+\_\+channel}}
+\index{reading\+\_\+from\+\_\+channel@{reading\+\_\+from\+\_\+channel}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reading\+\_\+from\+\_\+channel()}{reading\_from\_channel()}}
+{\footnotesize\ttfamily double A\+D7193\+::reading\+\_\+from\+\_\+channel (\begin{DoxyParamCaption}\item[{A\+D7193\+::channel\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Get voltage applied to channel  reading\+\_\+from\+\_\+channel 
+\begin{DoxyParams}{Parameters}
+{\em channel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+voltage applied to channel or A\+D7193\+\_\+\+N\+O\+D\+A\+TA if the channel is not enabled or if the A\+DC doesn\textquotesingle{}t answer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a1fee5a5abade344e7c1f5966ffebfddb}\label{classAD7193_a1fee5a5abade344e7c1f5966ffebfddb}} 
+\index{A\+D7193@{A\+D7193}!reading\+\_\+from\+\_\+channel\+\_\+raw@{reading\+\_\+from\+\_\+channel\+\_\+raw}}
+\index{reading\+\_\+from\+\_\+channel\+\_\+raw@{reading\+\_\+from\+\_\+channel\+\_\+raw}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reading\+\_\+from\+\_\+channel\+\_\+raw()}{reading\_from\_channel\_raw()}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D7193\+::reading\+\_\+from\+\_\+channel\+\_\+raw (\begin{DoxyParamCaption}\item[{A\+D7193\+::channel\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+Get raw data returned by the \hyperlink{classAD7193}{A\+D7193} for channel  reading\+\_\+from\+\_\+channel\+\_\+raw 
+\begin{DoxyParams}{Parameters}
+{\em channel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+raw data returned by the A\+DC for channel (on 24-\/bit) or A\+D7193\+\_\+\+N\+O\+D\+A\+TA if no data is available 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a387482f8e82841faf32611b5044fbc52}\label{classAD7193_a387482f8e82841faf32611b5044fbc52}} 
+\index{A\+D7193@{A\+D7193}!reading\+\_\+raw@{reading\+\_\+raw}}
+\index{reading\+\_\+raw@{reading\+\_\+raw}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reading\+\_\+raw()}{reading\_raw()}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D7193\+::reading\+\_\+raw (\begin{DoxyParamCaption}\item[{A\+D7193\+::channel\+\_\+t $\ast$}]{from\+\_\+channel }\end{DoxyParamCaption})}
+
+Get raw data returned by the \hyperlink{classAD7193}{A\+D7193} for a channel  reading\+\_\+raw 
+\begin{DoxyParams}{Parameters}
+{\em from\+\_\+channel} & if not null, return the channel the data is coming from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+raw data returned by the A\+DC (on 24-\/bit) or A\+D7193\+\_\+\+N\+O\+D\+A\+TA if no data is available 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAD7193_a5b1bbfb3b90e7034bba4f14c397ebcb4}\label{classAD7193_a5b1bbfb3b90e7034bba4f14c397ebcb4}} 
+\index{A\+D7193@{A\+D7193}!reset@{reset}}
+\index{reset@{reset}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void A\+D7193\+::reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Reset the \hyperlink{classAD7193}{A\+D7193} \mbox{\Hypertarget{classAD7193_a5b066aba7096fb2db5d91661a46862da}\label{classAD7193_a5b066aba7096fb2db5d91661a46862da}} 
+\index{A\+D7193@{A\+D7193}!set\+\_\+config@{set\+\_\+config}}
+\index{set\+\_\+config@{set\+\_\+config}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{set\+\_\+config()}{set\_config()}}
+{\footnotesize\ttfamily void A\+D7193\+::set\+\_\+config (\begin{DoxyParamCaption}\item[{\hyperlink{structAD7193_1_1config__t}{A\+D7193\+::config\+\_\+t} $\ast$}]{newconfig }\end{DoxyParamCaption})}
+
+Apply config to the A\+DC 
+\begin{DoxyParams}{Parameters}
+{\em config} & New configuration of the A\+DC \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAD7193_ac9bf997384928f28bee7c6cdb784f4bb}\label{classAD7193_ac9bf997384928f28bee7c6cdb784f4bb}} 
+\index{A\+D7193@{A\+D7193}!set\+\_\+reference\+\_\+voltage@{set\+\_\+reference\+\_\+voltage}}
+\index{set\+\_\+reference\+\_\+voltage@{set\+\_\+reference\+\_\+voltage}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{set\+\_\+reference\+\_\+voltage()}{set\_reference\_voltage()}}
+{\footnotesize\ttfamily void A\+D7193\+::set\+\_\+reference\+\_\+voltage (\begin{DoxyParamCaption}\item[{double}]{voltage\+\_\+mv }\end{DoxyParamCaption})}
+
+Set reference voltage that will be used when converting into millivolts 
+\begin{DoxyParams}{Parameters}
+{\em voltage\+\_\+mv} & Reference voltage in millivolts \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAD7193_a5fa5a3b5bf71472df93bb413f20ca7b6}\label{classAD7193_a5fa5a3b5bf71472df93bb413f20ca7b6}} 
+\index{A\+D7193@{A\+D7193}!sync\+\_\+config@{sync\+\_\+config}}
+\index{sync\+\_\+config@{sync\+\_\+config}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{sync\+\_\+config()}{sync\_config()}}
+{\footnotesize\ttfamily void A\+D7193\+::sync\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Synchronize stored configuration with the one stored in the A\+DC \mbox{\Hypertarget{classAD7193_abbe6d0813d39dc3754c3f89abc81116a}\label{classAD7193_abbe6d0813d39dc3754c3f89abc81116a}} 
+\index{A\+D7193@{A\+D7193}!wait\+\_\+data\+\_\+available@{wait\+\_\+data\+\_\+available}}
+\index{wait\+\_\+data\+\_\+available@{wait\+\_\+data\+\_\+available}!A\+D7193@{A\+D7193}}
+\subsubsection{\texorpdfstring{wait\+\_\+data\+\_\+available()}{wait\_data\_available()}}
+{\footnotesize\ttfamily bool A\+D7193\+::wait\+\_\+data\+\_\+available (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{break\+\_\+time = {\ttfamily 10000} }\end{DoxyParamCaption})}
+
+Wait for data to be available on the \hyperlink{classAD7193}{A\+D7193} 
+\begin{DoxyParams}{Parameters}
+{\em break\+\_\+time} & Timeout \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if data is available, false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+A\+D7193/A\+D7193.\+h\item 
+lib/\+A\+D7193/ad7193.\+cpp\end{DoxyCompactItemize}

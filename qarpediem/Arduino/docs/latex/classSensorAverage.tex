@@ -1,0 +1,82 @@
+\hypertarget{classSensorAverage}{}\section{Sensor\+Average Class Reference}
+\label{classSensorAverage}\index{Sensor\+Average@{Sensor\+Average}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSensorAverage_a4865484deffbe0dcd78c8aac29d79e92}{Sensor\+Average} (float sampling\+\_\+freq=4, float readings\+\_\+lifetime=30)
+\item 
+bool \hyperlink{classSensorAverage_a49b21efd16d229bf9d034ea625f8535b}{set\+\_\+readings\+\_\+settings} (float sampling\+\_\+freq, float lifetime)
+\item 
+float \hyperlink{classSensorAverage_a966608312e246981d170c45a782f74c9}{get\+\_\+sampling\+\_\+period} (void)
+\item 
+float \hyperlink{classSensorAverage_a61e90ca78c8cbd04444d41f60a871500}{get\+\_\+average\+\_\+level} (void)
+\item 
+void \hyperlink{classSensorAverage_a4d37d23977e05bc75fe6dd97cbd29cb5}{push\+\_\+value} (uint16\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSensorAverage_a4865484deffbe0dcd78c8aac29d79e92}\label{classSensorAverage_a4865484deffbe0dcd78c8aac29d79e92}} 
+\index{Sensor\+Average@{Sensor\+Average}!Sensor\+Average@{Sensor\+Average}}
+\index{Sensor\+Average@{Sensor\+Average}!Sensor\+Average@{Sensor\+Average}}
+\subsubsection{\texorpdfstring{Sensor\+Average()}{SensorAverage()}}
+{\footnotesize\ttfamily Sensor\+Average\+::\+Sensor\+Average (\begin{DoxyParamCaption}\item[{float}]{sampling\+\_\+freq = {\ttfamily 4},  }\item[{float}]{readings\+\_\+lifetime = {\ttfamily 30} }\end{DoxyParamCaption})}
+
+\hyperlink{classSensorAverage}{Sensor\+Average} constructor  \hyperlink{classSensorAverage}{Sensor\+Average} 
+\begin{DoxyParams}{Parameters}
+{\em sampling\+\_\+freq} & in Hz \\
+\hline
+{\em readings\+\_\+lifetime} & in seconds \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSensorAverage_a61e90ca78c8cbd04444d41f60a871500}\label{classSensorAverage_a61e90ca78c8cbd04444d41f60a871500}} 
+\index{Sensor\+Average@{Sensor\+Average}!get\+\_\+average\+\_\+level@{get\+\_\+average\+\_\+level}}
+\index{get\+\_\+average\+\_\+level@{get\+\_\+average\+\_\+level}!Sensor\+Average@{Sensor\+Average}}
+\subsubsection{\texorpdfstring{get\+\_\+average\+\_\+level()}{get\_average\_level()}}
+{\footnotesize\ttfamily float Sensor\+Average\+::get\+\_\+average\+\_\+level (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return the average voltage returned by the sound sensor  get\+\_\+average\+\_\+level \begin{DoxyReturn}{Returns}
+average voltage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSensorAverage_a966608312e246981d170c45a782f74c9}\label{classSensorAverage_a966608312e246981d170c45a782f74c9}} 
+\index{Sensor\+Average@{Sensor\+Average}!get\+\_\+sampling\+\_\+period@{get\+\_\+sampling\+\_\+period}}
+\index{get\+\_\+sampling\+\_\+period@{get\+\_\+sampling\+\_\+period}!Sensor\+Average@{Sensor\+Average}}
+\subsubsection{\texorpdfstring{get\+\_\+sampling\+\_\+period()}{get\_sampling\_period()}}
+{\footnotesize\ttfamily float Sensor\+Average\+::get\+\_\+sampling\+\_\+period (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return the current sampling period  get\+\_\+sampling\+\_\+period \begin{DoxyReturn}{Returns}
+the current sampling period in seconds or N\+AN for an infinite period 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSensorAverage_a4d37d23977e05bc75fe6dd97cbd29cb5}\label{classSensorAverage_a4d37d23977e05bc75fe6dd97cbd29cb5}} 
+\index{Sensor\+Average@{Sensor\+Average}!push\+\_\+value@{push\+\_\+value}}
+\index{push\+\_\+value@{push\+\_\+value}!Sensor\+Average@{Sensor\+Average}}
+\subsubsection{\texorpdfstring{push\+\_\+value()}{push\_value()}}
+{\footnotesize\ttfamily void Sensor\+Average\+::push\+\_\+value (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Add a value and  push\+\_\+value 
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{[}description\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSensorAverage_a49b21efd16d229bf9d034ea625f8535b}\label{classSensorAverage_a49b21efd16d229bf9d034ea625f8535b}} 
+\index{Sensor\+Average@{Sensor\+Average}!set\+\_\+readings\+\_\+settings@{set\+\_\+readings\+\_\+settings}}
+\index{set\+\_\+readings\+\_\+settings@{set\+\_\+readings\+\_\+settings}!Sensor\+Average@{Sensor\+Average}}
+\subsubsection{\texorpdfstring{set\+\_\+readings\+\_\+settings()}{set\_readings\_settings()}}
+{\footnotesize\ttfamily bool Sensor\+Average\+::set\+\_\+readings\+\_\+settings (\begin{DoxyParamCaption}\item[{float}]{sampling\+\_\+freq,  }\item[{float}]{lifetime }\end{DoxyParamCaption})}
+
+Set readings sampling frequecy and lifetime  set\+\_\+readings\+\_\+settings 
+\begin{DoxyParams}{Parameters}
+{\em sampling\+\_\+freq} & in Hz \\
+\hline
+{\em lifetime} & in seconds \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Sensor\+Average/Sensor\+Average.\+h\item 
+lib/\+Sensor\+Average/Sensor\+Average.\+cpp\end{DoxyCompactItemize}

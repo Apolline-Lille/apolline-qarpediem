@@ -1,0 +1,5 @@
+-Wall
+-Werror
+-Iinclude
+-g
+-std=c++11

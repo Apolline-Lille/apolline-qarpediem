@@ -1,0 +1,126 @@
+\hypertarget{classInterQarpe_1_1DuplexBase}{}\section{Inter\+Qarpe\+:\+:Duplex\+Base Class Reference}
+\label{classInterQarpe_1_1DuplexBase}\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+Inheritance diagram for Inter\+Qarpe\+:\+:Duplex\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classInterQarpe_1_1DuplexBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classInterQarpe_1_1DuplexBase_a9b9fd5a27079a505aa8f1bcf465efc3c}{routine} (void)
+\item 
+bool \hyperlink{classInterQarpe_1_1DuplexBase_a734993799429420b6e0554c5afce074a}{is\+\_\+connected} (void)
+\item 
+\hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result} \hyperlink{classInterQarpe_1_1DuplexBase_a1b3a0a47a6f8c3d6a50959484d118a51}{query} (const char $\ast$query)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classInterQarpe_1_1DuplexBase_ac4d378add5e8844c8e1de9a48caedc39}{send\+\_\+response\+\_\+ok} (void)
+\item 
+void \hyperlink{classInterQarpe_1_1DuplexBase_a0dbd283fa8303c429eb1011fd01fcc16}{send\+\_\+response\+\_\+error} (void)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classInterQarpe_1_1DuplexBase_aa7f5efac1989b9a1f9f45eb5f6127d80}{send\+\_\+response\+\_\+ok} (T data)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classInterQarpe_1_1DuplexBase_abc6ffcbbcb8b9b078113f9132151528e}{send\+\_\+response\+\_\+error} (T data)
+\item 
+void \hyperlink{classInterQarpe_1_1DuplexBase_a730b5db8ac250221b881a99d7ae5b8a0}{send\+\_\+badquery} (void)
+\item 
+virtual void \hyperlink{classInterQarpe_1_1DuplexBase_a4acc79abc4ff57238ca7efc8eaa30064}{on\+\_\+query} (const char $\ast$\hyperlink{classInterQarpe_1_1DuplexBase_a1b3a0a47a6f8c3d6a50959484d118a51}{query})
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a734993799429420b6e0554c5afce074a}\label{classInterQarpe_1_1DuplexBase_a734993799429420b6e0554c5afce074a}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!is\+\_\+connected@{is\+\_\+connected}}
+\index{is\+\_\+connected@{is\+\_\+connected}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{is\+\_\+connected()}{is\_connected()}}
+{\footnotesize\ttfamily bool Duplex\+Base\+::is\+\_\+connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if we have we are connected to the other device
+
+\begin{DoxyReturn}{Returns}
+true if we have a valid connection with the other device 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a4acc79abc4ff57238ca7efc8eaa30064}\label{classInterQarpe_1_1DuplexBase_a4acc79abc4ff57238ca7efc8eaa30064}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!on\+\_\+query@{on\+\_\+query}}
+\index{on\+\_\+query@{on\+\_\+query}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{on\+\_\+query()}{on\_query()}}
+{\footnotesize\ttfamily void Duplex\+Base\+::on\+\_\+query (\begin{DoxyParamCaption}\item[{const char $\ast$}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Hook that is called when a query is received \mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a1b3a0a47a6f8c3d6a50959484d118a51}\label{classInterQarpe_1_1DuplexBase_a1b3a0a47a6f8c3d6a50959484d118a51}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!query@{query}}
+\index{query@{query}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily \hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result} Duplex\+Base\+::query (\begin{DoxyParamCaption}\item[{const char $\ast$}]{query }\end{DoxyParamCaption})}
+
+Send a query to the other device. This function is blocking and will only return when we have a proper response to return (a.\+k.\+a response from the other device or timeout after the default duration without a response)
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & the query must be a 0-\/terminated string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the query\textquotesingle{}s result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a9b9fd5a27079a505aa8f1bcf465efc3c}\label{classInterQarpe_1_1DuplexBase_a9b9fd5a27079a505aa8f1bcf465efc3c}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!routine@{routine}}
+\index{routine@{routine}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{routine()}{routine()}}
+{\footnotesize\ttfamily void Duplex\+Base\+::routine (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Execute common task needed by the Inter\+Qarpe protocol to manage the connection. This function must be executed in order to receive packet. You may want to execute it in each iteration of your main loop. \mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a730b5db8ac250221b881a99d7ae5b8a0}\label{classInterQarpe_1_1DuplexBase_a730b5db8ac250221b881a99d7ae5b8a0}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+badquery@{send\+\_\+badquery}}
+\index{send\+\_\+badquery@{send\+\_\+badquery}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{send\+\_\+badquery()}{send\_badquery()}}
+{\footnotesize\ttfamily void Duplex\+Base\+::send\+\_\+badquery (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Signal to the other side that the query is not handled on our side \mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_a0dbd283fa8303c429eb1011fd01fcc16}\label{classInterQarpe_1_1DuplexBase_a0dbd283fa8303c429eb1011fd01fcc16}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}}
+\index{send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{send\+\_\+response\+\_\+error()}{send\_response\_error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Duplex\+Base\+::send\+\_\+response\+\_\+error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+send a \char`\"{}error\char`\"{} response without any data \mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_abc6ffcbbcb8b9b078113f9132151528e}\label{classInterQarpe_1_1DuplexBase_abc6ffcbbcb8b9b078113f9132151528e}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}}
+\index{send\+\_\+response\+\_\+error@{send\+\_\+response\+\_\+error}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{send\+\_\+response\+\_\+error()}{send\_response\_error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Inter\+Qarpe\+::\+Duplex\+Base\+::send\+\_\+response\+\_\+error (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+send a \char`\"{}error\char`\"{} response to the other device
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data to send \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_ac4d378add5e8844c8e1de9a48caedc39}\label{classInterQarpe_1_1DuplexBase_ac4d378add5e8844c8e1de9a48caedc39}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}}
+\index{send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{send\+\_\+response\+\_\+ok()}{send\_response\_ok()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Duplex\+Base\+::send\+\_\+response\+\_\+ok (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+send a \char`\"{}ok\char`\"{} response without any data \mbox{\Hypertarget{classInterQarpe_1_1DuplexBase_aa7f5efac1989b9a1f9f45eb5f6127d80}\label{classInterQarpe_1_1DuplexBase_aa7f5efac1989b9a1f9f45eb5f6127d80}} 
+\index{Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}!send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}}
+\index{send\+\_\+response\+\_\+ok@{send\+\_\+response\+\_\+ok}!Inter\+Qarpe\+::\+Duplex\+Base@{Inter\+Qarpe\+::\+Duplex\+Base}}
+\subsubsection{\texorpdfstring{send\+\_\+response\+\_\+ok()}{send\_response\_ok()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Inter\+Qarpe\+::\+Duplex\+Base\+::send\+\_\+response\+\_\+ok (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+send a \char`\"{}ok\char`\"{} response to the other device
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data to send \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Inter\+Qarpe/Duplex\+Base.\+h\item 
+lib/\+Inter\+Qarpe/Duplex\+Base.\+cpp\end{DoxyCompactItemize}

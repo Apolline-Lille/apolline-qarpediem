@@ -1,0 +1,166 @@
+# depslib dependency file v1.0
+1455531908 source:/home/pi/cooking/arduPi/arduPi.cpp
+	"arduPi.h"
+
+1455492258 /home/pi/cooking/arduPi/arduPi.h
+	<errno.h>
+	<fcntl.h>
+	<netinet/in.h>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	<sys/ipc.h>
+	<sys/sem.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/wait.h>
+	<sys/mman.h>
+	<string.h>
+	<time.h>
+	<termios.h>
+	<ctype.h>
+	<sys/ioctl.h>
+	<limits.h>
+	<algorithm>
+	<limits.h>
+	<pthread.h>
+	<poll.h>
+	<bcm2835.h>
+	<stdarg.h>
+	<unistd.h>
+
+1454971350 source:/home/pi/cooking/arduPi-api/arduPiMultiprotocol.cpp
+	"arduPiMultiprotocol.h"
+
+1454973494 /home/pi/cooking/arduPi-api/arduPiMultiprotocol.h
+	<inttypes.h>
+	"../arduPi/arduPi.h"
+
+1455145966 source:/home/pi/cooking/arduPi-api/arduPiUART.cpp
+	"arduPiClasses.h"
+	"arduPiUART.h"
+
+1455146002 /home/pi/cooking/arduPi-api/arduPiClasses.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<math.h>
+	"arduPiUtils.h"
+	"arduPiMultiprotocol.h"
+	"arduPiUART.h"
+
+1454970684 /home/pi/cooking/arduPi-api/arduPiUtils.h
+	<inttypes.h>
+	"arduPiClasses.h"
+
+1455146022 /home/pi/cooking/arduPi-api/arduPiUART.h
+	<inttypes.h>
+	"../arduPi/arduPi.h"
+
+1455492922 source:/home/pi/cooking/arduPi-api/arduPiUtils.cpp
+	"arduPiClasses.h"
+	<inttypes.h>
+	"arduPiUtils.h"
+	"arduPiMultiprotocol.h"
+
+1499065177 source:/home/pi/cooking/libraries/arduPiLoRa/arduPiLoRa.cpp
+	"arduPiLoRa.h"
+	"arduPiClasses.h"
+
+1499157810 /home/pi/cooking/libraries/arduPiLoRa/arduPiLoRa.h
+	<stdint.h>
+	"arduPi.h"
+	<inttypes.h>
+
+1455492258 /home/pi/cooking/libraries/arduPiLoRa/arduPi.h
+	<errno.h>
+	<fcntl.h>
+	<netinet/in.h>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	<sys/ipc.h>
+	<sys/sem.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/wait.h>
+	<sys/mman.h>
+	<string.h>
+	<time.h>
+	<termios.h>
+	<ctype.h>
+	<sys/ioctl.h>
+	<limits.h>
+	<algorithm>
+	<limits.h>
+	<pthread.h>
+	<poll.h>
+	<bcm2835.h>
+	<stdarg.h>
+	<unistd.h>
+
+1455146002 /home/pi/cooking/libraries/arduPiLoRa/arduPiClasses.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<math.h>
+	"arduPiUtils.h"
+	"arduPiMultiprotocol.h"
+	"arduPiUART.h"
+
+1454970684 /home/pi/cooking/libraries/arduPiLoRa/arduPiUtils.h
+	<inttypes.h>
+	"arduPiClasses.h"
+
+1498580921 /home/pi/cooking/libraries/arduPiLoRa/arduPiMultiprotocol.h
+	<inttypes.h>
+	"arduPi.h"
+
+1498580965 /home/pi/cooking/libraries/arduPiLoRa/arduPiUART.h
+	<inttypes.h>
+	"arduPi.h"
+
+1499160935 source:/home/pi/Projects/Qarpetest/Qarpetest/lora-test/main.cpp
+	"arduPiLoRa.h"
+	<stdio.h>
+	<stdlib.h>
+	<sqlite3.h>
+	<time.h>
+	<stdint.h>
+	<signal.h>
+
+1499054154 /home/pi/Projects/Qarpetest/Qarpetest/lora-test/arduPiLoRa.h
+	<stdint.h>
+	"arduPi.h"
+	<inttypes.h>
+
+1455492258 /home/pi/Projects/Qarpetest/Qarpetest/lora-test/arduPi.h
+	<errno.h>
+	<fcntl.h>
+	<netinet/in.h>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	<sys/ipc.h>
+	<sys/sem.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/wait.h>
+	<sys/mman.h>
+	<string.h>
+	<time.h>
+	<termios.h>
+	<ctype.h>
+	<sys/ioctl.h>
+	<limits.h>
+	<algorithm>
+	<limits.h>
+	<pthread.h>
+	<poll.h>
+	<bcm2835.h>
+	<stdarg.h>
+	<unistd.h>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lora-test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/lora-test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pthread" />
+					<Add option="-lsqlite3" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/lora-test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-pthread" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../../../../cooking/arduPi-api/arduPiClasses.h" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiMultiprotocol.cpp" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiMultiprotocol.h" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiUART.cpp" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiUART.h" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiUtils.cpp" />
+		<Unit filename="../../../../cooking/arduPi-api/arduPiUtils.h" />
+		<Unit filename="../../../../cooking/arduPi/arduPi.cpp" />
+		<Unit filename="../../../../cooking/arduPi/arduPi.h" />
+		<Unit filename="../../../../cooking/libraries/arduPiLoRa/arduPiLoRa.cpp" />
+		<Unit filename="../../../../cooking/libraries/arduPiLoRa/arduPiLoRa.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="tram.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

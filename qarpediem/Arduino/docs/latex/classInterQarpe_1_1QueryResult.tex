@@ -1,0 +1,108 @@
+\hypertarget{classInterQarpe_1_1QueryResult}{}\section{Inter\+Qarpe\+:\+:Query\+Result Class Reference}
+\label{classInterQarpe_1_1QueryResult}\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+
+
+{\ttfamily \#include $<$Query\+Result.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} \{ {\bfseries R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+OK}, 
+{\bfseries R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries B\+A\+D\+\_\+\+Q\+U\+E\+RY}, 
+{\bfseries T\+I\+M\+E\+O\+UT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInterQarpe_1_1QueryResult_a352263dc06a25fbb1c6ac075ac8a7420}{Query\+Result} (\hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} status, uint8\+\_\+t $\ast$data, size\+\_\+t data\+\_\+size)
+\item 
+\hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{result\+\_\+t} \hyperlink{classInterQarpe_1_1QueryResult_a6197ac1a1b4524be0e5643c96b1d24df}{get\+\_\+result} (void)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \hyperlink{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}{get\+\_\+data} (T $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represent the result of a query 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & represent the data the query should \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}\label{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}} 
+\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!result\+\_\+t@{result\+\_\+t}}
+\index{result\+\_\+t@{result\+\_\+t}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection{\texorpdfstring{result\+\_\+t}{result\_t}}
+{\footnotesize\ttfamily enum \hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{Inter\+Qarpe\+::\+Query\+Result\+::result\+\_\+t}}
+
+Different results a query can take\+:
+\begin{DoxyItemize}
+\item R\+E\+S\+P\+O\+N\+S\+E\+\_\+\mbox{[}O\+K$\vert$\+E\+R\+R\+OR\mbox{]}\+: Positive/negative response from the other device.
+\item B\+A\+D\+\_\+\+Q\+U\+E\+RY\+: Error received from the other device.
+\item T\+I\+M\+E\+O\+UT\+: No response from the other device. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInterQarpe_1_1QueryResult_a352263dc06a25fbb1c6ac075ac8a7420}\label{classInterQarpe_1_1QueryResult_a352263dc06a25fbb1c6ac075ac8a7420}} 
+\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!Query\+Result@{Query\+Result}}
+\index{Query\+Result@{Query\+Result}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection{\texorpdfstring{Query\+Result()}{QueryResult()}}
+{\footnotesize\ttfamily Query\+Result\+::\+Query\+Result (\begin{DoxyParamCaption}\item[{\hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{Query\+Result\+::result\+\_\+t}}]{result,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{data\+\_\+size }\end{DoxyParamCaption})}
+
+Constructor of \hyperlink{classInterQarpe_1_1QueryResult}{Query\+Result}
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & of the query \\
+\hline
+{\em data} & a pointer to the data \\
+\hline
+{\em data\+\_\+size} & number of bytes available in the data buffer \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}\label{classInterQarpe_1_1QueryResult_a2a128d20e11bf7118844c73ec2035c76}} 
+\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!get\+\_\+data@{get\+\_\+data}}
+\index{get\+\_\+data@{get\+\_\+data}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection{\texorpdfstring{get\+\_\+data()}{get\_data()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Inter\+Qarpe\+::\+Query\+Result\+::get\+\_\+data (\begin{DoxyParamCaption}\item[{T $\ast$}]{data }\end{DoxyParamCaption})}
+
+Return data received from the other device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & will be returned through this pointer if any \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data that will be returned\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if we were able do recover enough data to build a T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterQarpe_1_1QueryResult_a6197ac1a1b4524be0e5643c96b1d24df}\label{classInterQarpe_1_1QueryResult_a6197ac1a1b4524be0e5643c96b1d24df}} 
+\index{Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}!get\+\_\+result@{get\+\_\+result}}
+\index{get\+\_\+result@{get\+\_\+result}!Inter\+Qarpe\+::\+Query\+Result@{Inter\+Qarpe\+::\+Query\+Result}}
+\subsubsection{\texorpdfstring{get\+\_\+result()}{get\_result()}}
+{\footnotesize\ttfamily \hyperlink{classInterQarpe_1_1QueryResult_ad265093e5dea69f229df989d4e18cbb4}{Query\+Result\+::result\+\_\+t} Query\+Result\+::get\+\_\+result (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return the current status of the query
+
+\begin{DoxyReturn}{Returns}
+result of query 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Inter\+Qarpe/Query\+Result.\+h\item 
+lib/\+Inter\+Qarpe/Query\+Result.\+cpp\end{DoxyCompactItemize}
